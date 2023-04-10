@@ -20,7 +20,7 @@ Dependiendo del rol en el que estés, cliente o administrador, podrás realizar 
 
 **Tecnologías back-End:**
 - El SGBD de MySQL para el trato y almacenamiento de los datos.
-- El framework de desarrollo Spring Boot con Java 17.
+- El framework de desarrollo Spring Boot con Java 17, aprovechando la oportunidad del profesor y ya que es lo requerido/utilizado en la empresa y sobre lo que actualmente tenemos más conocimientos los duales de ViewNext.
 
 **Tecnologías front-End:**
 - CSS y probablemente Tailwind CSS.
