@@ -596,6 +596,12 @@
     .rebajas{
         color: red;
     }
+
+    .rebajaFoto{
+        width: 230px;
+        margin-top: 60px;
+        padding: 20px;
+    }
     
     .header-content {
         margin-top: 70px;
