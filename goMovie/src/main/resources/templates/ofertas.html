@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>GoMovie!</title>
+    <link rel="icon" href="../assets/img/favicon.ico" th:href="@{/assets/img/favicon.ico}"/>
+    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-bar">
+            <i class='bx bx-menu sidebarOpen' ></i>
+            <span class="logo navLogo"><a title="inicio" th:href="@{/inicio}" id="texttttt"><img src="../assets/img/logo.png" th:src = "@{/assets/img/logo.png}" alt="" id="fotou"></a></span>
+
+            <div class="menu">
+                <div class="logo-toggle">
+                    <span class="logo"><a href="#">CodingLab</a></span>
+                    <i class='bx bx-x siderbarClose'></i>
+                </div>
+
+                <ul class="nav-links">
+                    <li><a th:href="@{/inicio}">Películas</a></li>
+                    <li><a th:href="@{/ofertas}">Ofertas</a></li>
+                    <li><a th:href="@{/lista}">Tu lista</a></li>
+                    <li><a th:href="@{/proximamente}">Próximamente</a></li>
+                </ul>
+            </div>
+
+            <div class="darkLight-searchBox">
+
+                <div class="searchBox">
+
+                    <div class="searchToggle">
+                        <i class='bx bx-x cancel bx-sm icons' style= "color:white" ></i>
+                        <i class='bx bx-search search bx-sm icons' style= "color:white"></i>
+                    </div>
+
+                    <div class="search-field">
+                        <input type="text" placeholder="Search...">
+                        <i class='bx bx-search icons'></i>
+                    </div>
+
+                </div>
+
+                <div class="searchBox">
+
+                    <a th:href="@{/perfil}" class="skr"><i class="bx bxs-user bx-sm icons" ></i></a>
+
+                </div>
+
+                <div class="searchBox">
+
+                    <a th:href="@{/}"><i class='bx bx-log-out bx-sm icons'></i></a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <header>
+        <div class="header-content">
+            <h1><span class="rebajas">¡REBAJAS DE PRIMAVERA!</span><br><span id="rebaja">¡REBAJAS DE PRIMAVERA!</span><br><span class="rebajas">¡REBAJAS DE PRIMAVERA!</span></h1>
+        </div>
+    </header>
+
+
+    <main id="mainLista">
+
+        <section class="list">
+            <h2>Te podría interesar</h2>
+            <ul>
+                <li>
+                    <img src="https://via.placeholder.com/150x225.png?text=Serie+1" alt="Serie 1">
+                    <div>
+                        <h3>Serie 1</h3>
+                        <p>10.99€</p>
+                        <button>Comprar</button>
+                    </div>
+                </li>
+                <li>
+                    <img src="https://via.placeholder.com/150x225.png?text=Serie+2" alt="Serie 2">
+                    <div>
+                        <h3>Serie 2</h3>
+                        <p>10.99€</p>
+                        <button>Comprar</button>
+                    </div>
+                </li>
+                <li>
+                    <img src="https://via.placeholder.com/150x225.png?text=Serie+2" alt="Serie 2">
+                    <div>
+                        <h3>Serie 2</h3>
+                        <p>10.99€</p>
+                        <button>Comprar</button>
+                    </div>
+                </li>
+                <li>
+                    <img src="https://via.placeholder.com/150x225.png?text=Serie+2" alt="Serie 2">
+                    <div>
+                        <h3>Serie 2</h3>
+                        <p>10.99€</p>
+                        <button>Comprar</button>
+                    </div>
+                </li>
+                <li>
+                    <img src="https://via.placeholder.com/150x225.png?text=Serie+2" alt="Serie 2">
+                    <div>
+                        <h3>Serie 2</h3>
+                        <p>10.99€</p>
+                        <button>Comprar</button>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section class="list">
+            <h2>Te podría interesar</h2>
+            <ul>
+                <li>
+                    <img src="https://via.placeholder.com/150x225.png?text=Serie+1" alt="Serie 1">
+                    <div>
+                        <h3>Serie 1</h3>
+                        <p>10.99€</p>
+                        <button>Comprar</button>
+                    </div>
+                </li>
+                <li>
+                    <img src="https://via.placeholder.com/150x225.png?text=Serie+2" alt="Serie 2">
+                    <div>
+                        <h3>Serie 2</h3>
+                        <p>10.99€</p>
+                        <button>Comprar</button>
+                    </div>
+                </li>
+                <li>
+                    <img src="https://via.placeholder.com/150x225.png?text=Serie+2" alt="Serie 2">
+                    <div>
+                        <h3>Serie 2</h3>
+                        <p>10.99€</p>
+                        <button>Comprar</button>
+                    </div>
+                </li>
+                <li>
+                    <img src="https://via.placeholder.com/150x225.png?text=Serie+2" alt="Serie 2">
+                    <div>
+                        <h3>Serie 2</h3>
+                        <p>10.99€</p>
+                        <button>Comprar</button>
+                    </div>
+                </li>
+                <li>
+                    <img src="https://via.placeholder.com/150x225.png?text=Serie+2" alt="Serie 2">
+                    <div>
+                        <h3>Serie 2</h3>
+                        <p>10.99€</p>
+                        <button>Comprar</button>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+    </main>
+    
+	<footer th:replace="index :: footer"></footer>
+
+
+
+
+</body>
+</html>
