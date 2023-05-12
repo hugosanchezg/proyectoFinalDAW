@@ -925,7 +925,7 @@
     }
 
     .list ul li {
-      margin-right: 20px;
+        margin-right: 20px;
     }
 
     .list ul li:last-child {
@@ -1028,6 +1028,10 @@
         padding: 40px 0;
     }
 
+    footer h3{
+        color: white;
+    }
+
     .container-footer {
         max-width: 1200px;
         margin: 0 auto;
@@ -1036,11 +1040,11 @@
     }
 
 	.header-index h1 {	
-	position: relative;
-  	color: #ffffff;  
-  	font-size: 14rem;
-  	text-align: center;
-}
+        position: relative;
+        color: #ffffff;
+        font-size: 14rem;
+        text-align: center;
+    }
 
     .footer-links {
         display: flex;
