@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -19,12 +20,13 @@ public class Pelicula {
 	private int id_pelicula;
 	private String foto;
 	private String nombre;
-	private String descripción;
+	private String descripcion;
 	private String duracion;
 	private float precio;
 	private int stock;
 	private int rebaja;
 	private int descatalogado;
+	
 	/*
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -43,7 +45,7 @@ public class Pelicula {
 		this.id_pelicula = id_pelicula;
 		this.foto = foto;
 		this.nombre = nombre;
-		this.descripción = descripción;
+		this.descripcion = descripción;
 		this.duracion = duracion;
 		this.precio = precio;
 		this.stock = stock;
@@ -78,11 +80,11 @@ public class Pelicula {
 	}
 
 	public String getDescripción() {
-		return descripción;
+		return descripcion;
 	}
 
 	public void setDescripción(String descripción) {
-		this.descripción = descripción;
+		this.descripcion = descripción;
 	}
 
 	public String getDuracion() {
@@ -129,7 +131,7 @@ public class Pelicula {
 		return id_genero;
 	}
 
-	public void setGenero(int genero) {
+	public void setGenero(int id_genero) {
 		this.id_genero = id_genero;
 	}
 
@@ -137,7 +139,7 @@ public class Pelicula {
 	@Override
 	public String toString() {
 		return "Pelicula [id_pelicula=" + id_pelicula + ", foto=" + foto + ", nombre=" + nombre + ", descripción="
-				+ descripción + ", duracion=" + duracion + ", precio=" + precio + ", stock=" + stock + ", rebaja="
+				+ descripcion + ", duracion=" + duracion + ", precio=" + precio + ", stock=" + stock + ", rebaja="
 				+ rebaja + ", descatalogado=" + descatalogado + ", id_genero=" + id_genero + "]";
 	}
 	

@@ -9,4 +9,5 @@ import com.goMovie.Modelo.Pelicula;
 @Service
 public interface PeliculaServicio {
 	List<Pelicula> findAll();
+	List<Pelicula> generos(int genero);
 }

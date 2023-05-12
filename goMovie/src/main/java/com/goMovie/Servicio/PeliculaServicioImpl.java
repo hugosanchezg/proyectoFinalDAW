@@ -19,4 +19,9 @@ public class PeliculaServicioImpl implements PeliculaServicio {
 		return peliculaRepositorio.findAll();
 	}
 
+	@Override
+	public List<Pelicula> generos(int genero) {
+		return peliculaRepositorio.generos(genero);
+	}
+
 }

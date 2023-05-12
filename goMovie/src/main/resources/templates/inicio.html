@@ -92,19 +92,21 @@
 
             <button class="my-button">▼ Categorías</button>
             <div class="dropdown-content">
-                <a href="#"> Ciencia Ficción </a>
-                <a href="#"> Terror </a>
-                <a href="#"> Animado </a>
-                <a href="#"> Animado </a>
-                <a href="#"> Animado </a>
+                <a th:href="@{/fantasia}"> Fantasía </a>
+				<a th:href="@{/drama}"> Drama </a>
+				<a th:href="@{/romantico}"> Romántico </a>
+				<a th:href="@{/comedia}"> Comedia </a>
+				<a th:href="@{/infantil}"> Infantil </a>
+				<a th:href="@{/accion}"> Acción </a>
             </div>
         </div>
+        <a class="my-button" th:href="@{/inicio}">Mostrar todas</a>
     </div>
 
     <main id="mainInicio">
 
-        <div class="row" th:each="pelicula: ${peliculas}">
-            <div class="producto">
+        <div class="row" >
+            <div class="producto" th:each="pelicula: ${peliculas}">
                 <img th:src="${pelicula.foto}" alt="Movie Poster">
                 <h2 th:text="${pelicula.nombre}">Movie Title</h2>
             </div>
