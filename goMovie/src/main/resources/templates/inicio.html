@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:fragment="head">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GoMovie!</title>
     <link rel="icon" href="../assets/img/favicon.ico" th:href="@{/assets/img/favicon.ico}"/>
     <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link href="path/to/lightbox.css" rel="stylesheet" />
 </head>
 <body>
-    <nav>
+    <nav th:fragment="nav">
         <div class="nav-bar">
-
             <div class="menu">
-                <span class="logo navLogo"><a title="inicio" th:href="@{/inicio}" id="texttttt"><img src="../assets/img/logo.png" th:src = "@{/assets/img/logo.png}" alt="" id="fotou"></a></span>
+                <span class="logo navLogo"> <a title="inicio" th:href="@{/inicio}" id="texttttt">
+                	<img src="../assets/img/logo.png" th:src = "@{/assets/img/logo.png}" alt="" id="fotou">
+                </a></span>
             </div>
 
             <div class="menu">
-                
                 <ul class="nav-links">
                     <li><a th:href="@{/inicio}">Películas</a></li>
                     <li><a th:href="@{/ofertas}">Ofertas</a></li>
@@ -27,37 +28,29 @@
             </div>
 
             <div class="darkLight-searchBox">
-            
-            <div class="searchBox">
-
+            	<div class="searchBox">
                     <div class="searchToggle">
                         <i class='bx bx-x cancel bx-sm icons' style= "color:white" ></i>
                         <i class='bx bx-search search bx-sm icons' style= "color:white"></i>
                     </div>
 
                     <div class="search-field">
-                        <input type="text" placeholder="Search...">
-                        <i class='bx bx-search icons'></i>
+	                    <form th:action="@{/inicio}" method="get">
+	                        <input type="text" name="busqueda" placeholder="Search...">
+	                        <button type="submit"><i class='bx bx-search icons'></i></button>
+						</form>
                     </div>
-
                 </div>
             
                 <div class="searchBox">
-
                     <a th:href="@{/perfil}" class="skr"><i class="bx bxs-user bx-sm icons" ></i></a>
-
                 </div>
 
                 <div class="searchBox">
-
                     <a th:href="@{/}"><i class='bx bx-log-out bx-sm icons'></i></a>
-
                 </div>          
-
             </div>
-
         </div>
-
     </nav>
 
     <i class='bx bx-menu sidebarOpen' ></i>
@@ -77,7 +70,7 @@
 
     <div class="textos">
 
-        <h1 class="gomovie">🎬GoMovie!</h1>
+        <h1 class="gomovie" id="tituloGo">🎬GoMovie!</h1>
 
         <div id="separador">
             <hr class="red-separator">
@@ -87,7 +80,7 @@
 
     </div>
 
-    <div class="categorias">
+    <div class="categorias" id="categorias">
         <div class="dropdown">
 
             <button class="my-button">▼ Categorías</button>
@@ -100,22 +93,26 @@
 				<a th:href="@{/accion}"> Acción </a>
             </div>
         </div>
-        <a class="my-button" th:href="@{/inicio}">Mostrar todas</a>
+        <a class="my-button" th:href="@{/todas}">Mostrar todas</a>
     </div>
 
     <main id="mainInicio">
 
         <div class="row" >
             <div class="producto" th:each="pelicula: ${peliculas}">
-                <img th:src="${pelicula.foto}" alt="Movie Poster">
-                <h2 th:text="${pelicula.nombre}">Movie Title</h2>
+                <a th:href="@{/detalles/} + ${pelicula.id_pelicula}">
+                	<img th:src="${pelicula.foto}" alt="Movie Poster">
+                	<h2 th:text="${pelicula.nombre}">Movie Title</h2>
+                </a>
+                
             </div>
         </div>
 
     </main>
 
     <footer th:replace="index :: footer"></footer>
-    
+
+
     <script src="js/script.js"></script>
 </body>
 </html>

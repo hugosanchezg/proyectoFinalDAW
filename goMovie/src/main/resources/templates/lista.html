@@ -8,58 +8,7 @@
   <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-  <nav>
-    <div class="nav-bar">
-      <i class='bx bx-menu sidebarOpen' ></i>
-      <span class="logo navLogo"><a title="inicio" th:href="@{/inicio}" id="texttttt"><img src="../assets/imagenes/logo.png" th:src = "@{/assets/img/logo.png}" alt="" id="fotou"></a></span>
-
-      <div class="menu">
-        <div class="logo-toggle">
-          <span class="logo"><a href="#">CodingLab</a></span>
-          <i class='bx bx-x siderbarClose'></i>
-        </div>
-
-        <ul class="nav-links">
-          <li><a th:href="@{/inicio}">Películas</a></li>
-          <li><a th:href="@{/ofertas}">Ofertas</a></li>
-          <li><a th:href="@{/lista}">Tu lista</a></li>
-          <li><a th:href="@{/proximamente}">Próximamente</a></li>
-        </ul>
-      </div>
-
-      <div class="darkLight-searchBox">
-
-        <div class="searchBox">
-
-          <div class="searchToggle">
-            <i class='bx bx-x cancel bx-sm icons' style= "color:white" ></i>
-            <i class='bx bx-search search bx-sm icons' style= "color:white"></i>
-          </div>
-
-          <div class="search-field">
-            <input type="text" placeholder="Search...">
-            <i class='bx bx-search icons'></i>
-          </div>
-
-        </div>
-
-        <div class="searchBox">
-
-          <a th:href="@{/perfil}" class="skr"><i class="bx bxs-user bx-sm icons" ></i></a>
-
-        </div>
-
-        <div class="searchBox">
-
-          <a th:href="@{/}"><i class='bx bx-log-out bx-sm icons'></i></a>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </nav>
+  <nav th:replace="inicio :: nav"></nav>
 
   <header id="headerLista">
     <div class="pelicula-info">

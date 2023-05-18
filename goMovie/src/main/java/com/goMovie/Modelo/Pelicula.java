@@ -27,20 +27,18 @@ public class Pelicula {
 	private int rebaja;
 	private int descatalogado;
 	
-	/*
-	
+
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "id_genero")
-	private Genero genero;*/
-
-	private int id_genero;
+	private Genero genero;
+	
 	
 	public Pelicula() {
 		super();
 	}
 
 	public Pelicula(int id_pelicula, String foto, String nombre, String descripción, String duracion, float precio,
-			int stock, int rebaja, int descatalogado, int id_genero) {
+			int stock, int rebaja, int descatalogado, Genero genero) {
 		super();
 		this.id_pelicula = id_pelicula;
 		this.foto = foto;
@@ -51,7 +49,7 @@ public class Pelicula {
 		this.stock = stock;
 		this.rebaja = rebaja;
 		this.descatalogado = descatalogado;
-		this.id_genero = id_genero;
+		this.genero = genero;
 	}
 	
 	
@@ -79,11 +77,11 @@ public class Pelicula {
 		this.nombre = nombre;
 	}
 
-	public String getDescripción() {
+	public String getDescripcion() {
 		return descripcion;
 	}
 
-	public void setDescripción(String descripción) {
+	public void setDescripcion(String descripción) {
 		this.descripcion = descripción;
 	}
 
@@ -127,21 +125,24 @@ public class Pelicula {
 		this.descatalogado = descatalogado;
 	}
 
-	public int getGenero() {
-		return id_genero;
+
+	public Genero getGenero() {
+		return genero;
 	}
 
-	public void setGenero(int id_genero) {
-		this.id_genero = id_genero;
+	public void setGenero(Genero genero) {
+		this.genero = genero;
 	}
 
-
+	
 	@Override
 	public String toString() {
-		return "Pelicula [id_pelicula=" + id_pelicula + ", foto=" + foto + ", nombre=" + nombre + ", descripción="
+		return "Pelicula [id_pelicula=" + id_pelicula + ", foto=" + foto + ", nombre=" + nombre + ", descripcion="
 				+ descripcion + ", duracion=" + duracion + ", precio=" + precio + ", stock=" + stock + ", rebaja="
-				+ rebaja + ", descatalogado=" + descatalogado + ", id_genero=" + id_genero + "]";
+				+ rebaja + ", descatalogado=" + descatalogado + ", genero=" + genero + "]";
 	}
+
+
 	
 	
 }

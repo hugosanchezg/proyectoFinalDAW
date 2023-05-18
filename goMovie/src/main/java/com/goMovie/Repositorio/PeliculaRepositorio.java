@@ -17,4 +17,10 @@ public interface PeliculaRepositorio extends JpaRepository<Pelicula, Integer> {
 	
 	@Query(value="SELECT * FROM Peliculas WHERE id_genero = :genero", nativeQuery=true)
 	List<Pelicula> generos(@Param("genero") int genero);
+	
+	@Query(value="SELECT * FROM Peliculas WHERE rebaja > 0", nativeQuery=true)
+	List<Pelicula> ofertas();
+	
+	@Query(value="SELECT * FROM Peliculas WHERE nombre LIKE %:busqueda%", nativeQuery=true)
+	List<Pelicula> buscador(@Param("busqueda") String busqueda);
 }

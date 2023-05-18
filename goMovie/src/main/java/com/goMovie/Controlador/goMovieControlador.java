@@ -2,12 +2,17 @@ package com.goMovie.Controlador;
 
 
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.Comparator;
+import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.goMovie.Modelo.Pelicula;
 import com.goMovie.Servicio.PeliculaServicio;
@@ -21,30 +26,42 @@ public class goMovieControlador {
 	private PeliculaServicio peliculaServicio;
 
 	
+
+
+			/* PAGINAS PRINCIPALES */
 	@GetMapping("/")
 	public String index() {
-		
 		return "index";
 	}
-
+		
 	@GetMapping("/inicio")
-	public String listar(Model model) {
-		List<Pelicula> peliculas = peliculaServicio.findAll();
-		model.addAttribute("peliculas", peliculas);
- 
-		return "inicio";
+	public String listar(String busqueda, Model model) {
+		List<Pelicula> peliculas;
+		
+		if (busqueda != null && !busqueda.isEmpty()) {
+			peliculas = peliculaServicio.buscador(busqueda);
+			model.addAttribute("peliculas", peliculas);
+			return "busqueda";
+		} else {
+
+			peliculas = peliculaServicio.findAll();
+			model.addAttribute("peliculas", peliculas);
+			return "inicio";
+		}
 	}
+			/* PAGINAS PRINCIPALES */
+	
 	
 	
 			/* CATEGORIAS */
 	@GetMapping("/fantasia")
 	public String fantasia(Model model) {
-		List<Pelicula> peliculas = peliculaServicio.generos(1);
-		model.addAttribute("peliculas", peliculas);
-		System.out.println(peliculas);
-		
-		return "inicio";
+	    List<Pelicula> peliculas = peliculaServicio.generos(1);
+	    model.addAttribute("peliculas", peliculas);
+	    
+	    return "inicio";
 	}
+
 	
 	@GetMapping("/drama")
 	public String drama(Model model) {
@@ -87,15 +104,60 @@ public class goMovieControlador {
 		return "inicio";
 	}
 	
-	/* CATEGORIAS */
-	
-	
-
-	@GetMapping("/ofertas")
-	public String ofertas() {
-		return "ofertas";
+	@GetMapping("/todas")
+	public String todas(Model model) {
+		List<Pelicula> peliculas = peliculaServicio.findAll();
+		model.addAttribute("peliculas", peliculas);
+		
+		return "inicio";
 	}
+			/* CATEGORIAS */
+	
+	
+	
+			/* OFERTAS */
+	@GetMapping("/ofertas")
+	public String ofertas(Model model) {
+	    List<Pelicula> peliculas = peliculaServicio.ofertas();
+	    Map<Pelicula, String> preciosFinales = new HashMap<>();
+	    
+	    for (Pelicula pelicula : peliculas) {
+	        int rebajaPelicula = pelicula.getRebaja();
+	        float precioPelicula = pelicula.getPrecio();
+	        float descuento = (precioPelicula * rebajaPelicula) / 100;
+	        float precioFinal = precioPelicula - descuento;
+	        
+	        String precioFormateado = String.format("%.2f", precioFinal);
+	        preciosFinales.put(pelicula, precioFormateado);
+	    }
+	    
+	    peliculas.sort(Comparator.comparingInt(Pelicula::getRebaja).reversed());
+	    List<Pelicula> peliculasDestacadas = peliculas.stream().limit(3).collect(Collectors.toList());
+	    model.addAttribute("peliculasDestacadas", peliculasDestacadas);
+	    
+	    List<Pelicula> peliculasRestantes = peliculas.stream().skip(3).collect(Collectors.toList());
 
+	    model.addAttribute("peliculasDestacadas", peliculasDestacadas);
+	    model.addAttribute("peliculasRestantes", peliculasRestantes);
+	    
+	    model.addAttribute("preciosFinales", preciosFinales);
+	    
+	    return "ofertas";
+	}
+			/* OFERTAS */
+
+	
+	
+			/* DETALLES */
+	@GetMapping("/detalles/{id_pelicula}")
+	public String detalles(@PathVariable("id_pelicula") int id_pelicula, Model model) {
+		Pelicula pelicula = peliculaServicio.findByID(id_pelicula);
+		model.addAttribute("pelicula", pelicula);
+		
+		return "detalles";
+	}
+			/* DETALLES */
+	
 	@GetMapping("/lista")
 	public String tulista() {
 		return "lista";
@@ -117,15 +179,6 @@ public class goMovieControlador {
 		return "signup";
 	}
 
-	@GetMapping("/carrusel")
-	public String carrusel() {
-		return "carrusel";
-	}
-	
-	@GetMapping("/detalles")
-	public String detalles() {
-		return "detalles";
-	}
 
 
 	@GetMapping("/perfil")

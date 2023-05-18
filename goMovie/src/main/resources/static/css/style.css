@@ -7,7 +7,9 @@
 
     /* -------- NAVBAR -------- */
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
-
+	
+	<link href="path/to/lightbox.css" rel="stylesheet" />
+	
     *{
         margin: 0;
         padding: 0;
@@ -64,46 +66,7 @@
         display: none;
     }
 
-	.container-login{
-	background-image: url("../assets/img/background-login.jpg");
-	object-fit: cover;
-	height: 80vh;
-	padding-top: 2vh ;
 	
-	}
-
-	.container-login-int{
-			margin: auto;
-			background-color: black;
-			width: 35vw;
-			height: 30wh;		
-			border-radius: 15px;
-			box-shadow: 7px 10px #EC1313;
-		}
-	
-    .login-btn {
-      display: flex;
-      margin:auto;
-      justify-content: center;
-      align-items: center;
-      background-color: red;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      font-size: 16px;
-      font-weight: bold;
-    }
-
-    .login-btn a {
-      text-decoration: none;
-      color: white;
-    }
-
-    .login-btn a:hover {
-      text-decoration: none;
-      color: white;
-    }
 
     .nav-bar .nav-links{
         display: flex;
@@ -308,6 +271,11 @@
         color: #fff;
         background-color: #000;
     }
+    
+    a{
+    	text-decoration: none;
+    	color: #fff;
+    }
 
     /* -------- SECCIÓN INICIO -------- */
     .ulul{
@@ -374,9 +342,17 @@
         text-align: left;
     }
 
-    .my-button {
+    #playme {
+    
+   		background-color: red;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        border-radius: 8px;
 
-        background-color: red;
+        /*background-color: red;
         color: white;
         font-size: 1.2rem;
         padding: 5px 10px;
@@ -384,7 +360,7 @@
         border-radius: 5px;
         box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.3);
         font-weight: bold;
-        font-size: 15px;
+        font-size: 15px;*/
     }
 
     .dropdown button{
@@ -392,7 +368,7 @@
         margin: auto;
     }
 
-    .my-button:hover {
+    #playme:hover {
       background-color: white;
       color: red;
       box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
@@ -414,11 +390,18 @@
         text-align: center;
     }
 
-    .gomovie{
+    .gomovie, .gomovienav{
         color: #ffffff;
         text-shadow: 0 0 0.3em #ff0000, 0 0 0.3em #ff0000;
     }
-
+	
+	.gomovienav{
+	
+	item-align: start;
+	
+	}
+	
+	
     .gameover{
         font-size: 20px;
     }
@@ -518,7 +501,48 @@
     }
 
      /* SECCIÓN LOGIN*/
+	
+	.container-login{
+	background-image: url("../assets/img/background-login.jpg");
+	object-fit: cover;
+	height: 80vh;
+	padding-top: 2vh ;
+	
+	}
 
+	.container-login-int{
+			margin: auto;
+			background-color: black;
+			width: 35vw;
+			height: 30wh;		
+			border-radius: 15px;
+			box-shadow: 7px 10px #EC1313;
+		}
+	
+    .login-btn {
+      display: flex;
+      margin:auto;
+      justify-content: center;
+      align-items: center;
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .login-btn a {
+      text-decoration: none;
+      color: white;
+    }
+
+    .login-btn a:hover {
+      text-decoration: none;
+      color: white;
+    }
+	
     .logo-login{
         height: 150px;
         width: 150px;
@@ -599,6 +623,7 @@
         border-radius: 0.25rem;
         background-color: #474545;
     }
+    
 
     /* -------- SECCIÓN ofertas -------- */
     .titulillo{
@@ -609,6 +634,8 @@
 
     .rebaja{
        box-shadow: 5px 5px 10px rgba(255, 255, 255, 0.5);
+       transform: rotate(-3.5deg);
+
     }
 
     .tabla {
@@ -622,7 +649,8 @@
         text-align: left;
         vertical-align: middle;
     }
-
+	
+	
     .tabla th{
         background-color: red;
     }
@@ -778,7 +806,7 @@
     }
 
 
-    .pelicula-principal .botonn {
+    .botonn {
         background-color: black;
         color: white;
         padding: 16px;
@@ -1595,9 +1623,73 @@
 	}
 }
 
-   }
 
+}
 
+/* ----------------Lightbox-----------------*/
 
+.lightbox {
+  background-color: fade(black, 80%);  
+  position: fixed;
+  margin:auto;
+  display: none;
+  z-index: 1;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+  
+  &-container {
+    position: relative;
+    max-width: 960px;
+    margin: 7% auto;
+    display: block;    
+    padding: 0 3%;
+    height: auto;
+    z-index: 10;
+    
+    // Increasing top margin for mobile
+    @media screen and (max-width: 768px) { margin-top: 10%; }
+    @media screen and (max-width: 414px) { margin-top: 13%; }
+  }
+    
+  &-content {
+    box-shadow: 0 1px 6px fade(black, 70%);
+  }
+  
+  &-close {
+    text-transform: uppercase;    
+    background: transparent;
+    position: absolute; 
+    font-weight: 300;      
+    font-size: 12px;
+    display: block;
+    border: none;
+    color: white;
+    top: -22px;
+    right: 3%;
+  }
+}
+
+.video-container {  
+    padding-bottom: 56.25%;
+    position: relative;  
+    padding-top: 30px; 
+    overflow: hidden;
+    height: 0; 
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    position: fixed;
+    height: 50%;  
+    width: 50%;  
+    bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+    margin:auto;
+}
 
 

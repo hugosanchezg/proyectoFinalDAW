@@ -108,4 +108,16 @@
 
 
 
-
+	// ANCLAJE
+	window.onload = function() {
+		var currentPage = window.location.pathname;
+		var pagesToScroll = ["/fantasia", "/drama", "/romantico", "/comedia", "/infantil", "/accion", "/todas"];
+	
+		if (pagesToScroll.includes(currentPage)) {
+			var element = document.getElementById("tituloGo");
+			
+			if (element) {
+				element.scrollIntoView({});
+			}
+		}
+	};

@@ -1,19 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	<meta name="description" content="" />
-	<meta name="author" content="" />
-	<title>GoMovie!</title>
-	<link rel="icon" href="../assets/img/favicon.ico" th:href="@{/assets/img/favicon.ico}"/>
-	<script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-	<link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
-	<link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet" />
-</head>
+<head th:replace="index :: head"> </head>
 
 <body>
 	<a th:href="@{/}"><img src="../static/assets/img/logo.png" th:src="@{/assets/img/logo.png}" alt="" class="w-25 d-block m-auto p-5"></a>
@@ -24,31 +12,31 @@
 		<div th:if=${param.fallo}>
 			<div class="alert alert-danger">El usuario ya está registrado.</div>
 		</div>
-		<form th:action="@{/signup}" method="post" th:object="${usuario}">
+		<!--  <form th:action="@{/signup}" method="post" th:object="${usuario}"> -->
 
 			<!-- nombre input -->
-			<div class="form-outline mb-4 w-50 d-block m-auto">
+			<!-- <div class="form-outline mb-4 w-50 d-block m-auto">
 				<input type="text" id="form2Example3" class="form-control" name="nombre" th:field="*{nombre}"
 					placeholder="Nombre" />
-			</div>
+			</div>-->
 
 			<!-- apellido input -->
-			<div class="form-outline mb-4 w-50 d-block m-auto">
+			<!--<div class="form-outline mb-4 w-50 d-block m-auto">
 				<input type="text" id="form2Example4" class="form-control" name="apellido" th:field="*{apellido}"
 					placeholder="Apellido" />
 			</div>
 
 			<!-- Email input -->
-			<div class="form-outline mb-4 w-50 d-block m-auto">
+			<!--<div class="form-outline mb-4 w-50 d-block m-auto">
 				<input type="email" id="form2Example1" class="form-control" name="email" th:field="*{email}"
 					placeholder="Correo electrónico" />
 			</div>
 
 			<!-- Password input -->
-			<div class="form-outline mb-4 w-50 d-block m-auto">
+			<!--<div class="form-outline mb-4 w-50 d-block m-auto">
 				<input type="password" id="form2Example2" class="form-control" name="password" th:field="*{password}"
 					placeholder="Contraseña" />
-			</div>
+			</div> 
 
 			<!-- Password input -->
 			<!--<div class="form-outline mb-4 w-50 d-block m-auto">

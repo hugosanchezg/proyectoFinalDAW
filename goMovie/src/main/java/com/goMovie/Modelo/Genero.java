@@ -7,34 +7,31 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "genero")
+@Table(name = "generos")
 public class Genero {
-	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_pelicula;
+	private int id_genero;
 	private String nombre;
-	
 	
 	
 	public Genero() {
 		super();
 	}
 	
-	public Genero(int id_pelicula, String nombre) {
+	public Genero(int id_genero, String nombre) {
 		super();
-		this.id_pelicula = id_pelicula;
+		this.id_genero = id_genero;
 		this.nombre = nombre;
 	}
 
-
-	public int getId_pelicula() {
-		return id_pelicula;
+	public int getId_genero() {
+		return id_genero;
 	}
 	
-	public void setId_pelicula(int id_pelicula) {
-		this.id_pelicula = id_pelicula;
+	public void setId_genero(int id_genero) {
+		this.id_genero = id_genero;
 	}
 	
 	public String getNombre() {
@@ -45,11 +42,6 @@ public class Genero {
 		this.nombre = nombre;
 	}
 
-	
-	@Override
-	public String toString() {
-		return "Genero [id_pelicula=" + id_pelicula + ", nombre=" + nombre + "]";
-	}
 
 	
 	
