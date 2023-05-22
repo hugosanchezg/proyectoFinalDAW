@@ -1,5 +1,4 @@
 
-
 function revealVideo(div,video_id) {
   var video = document.getElementById(video_id).src;
   document.getElementById(video_id).src = video+'&autoplay=1'; // adding autoplay to the URL

@@ -10,6 +10,8 @@
 
 <body>
       <nav th:replace="inicio :: nav"></nav>
+      
+      
 
     <header>
         <div class="header-content">
@@ -64,7 +66,7 @@
 	            <h2>Esta semana:</h2>
 	
 	            <ul>
-	                <li th:each="pelicula : ${peliculasRestantes}">>
+	                <li th:each="pelicula : ${peliculasRestantes}">
 	                    <img th:src="${pelicula.foto}">
 	                    <div>
 	                        <h3 th:text="${pelicula.nombre}"></h3>

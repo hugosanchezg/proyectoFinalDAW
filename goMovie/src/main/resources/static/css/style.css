@@ -9,7 +9,7 @@
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 	
 	<link href="path/to/lightbox.css" rel="stylesheet" />
-	
+
     *{
         margin: 0;
         padding: 0;
@@ -40,8 +40,8 @@
         max-width: 1000px;
         width: 100%;
         background-color: #1d1d1d;
-        margin: 0 auto;
-        padding: 0 30px;
+        margin-left: 70px;
+        padding: 0 0;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -77,6 +77,8 @@
         margin: 0 5px;
         list-style: none;
     }
+    
+    
 
     .nav-links li a{
         position: relative;
@@ -104,7 +106,10 @@
     .nav-links li:hover a::before{
         opacity: 1;
     }
-
+	
+	.nav-links:first-child {
+	margin-left: 240px;
+	}
     .nav-bar .darkLight-searchBox{
         display: flex;
         align-items: center;
@@ -207,7 +212,11 @@
         opacity: 1;
         pointer-events: auto;
     }
-
+	
+	.search-field button{
+	
+	}
+	
     .search-field::before{
         content: '';
         position: absolute;
@@ -215,11 +224,23 @@
         top: -4px;
         height: 12px;
         width: 12px;
-        background-color: ;
+        background-color:;
         transform: rotate(-45deg);
         z-index: -1;
     }
-
+	
+	.lupa{
+		height: 100%;
+        width: 100%;
+        padding: 0 45px 0 15px;
+        outline: none;
+        border: none;
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: 400;
+        color: grey;
+        background-color: black;
+	}
     .search-field input{
         height: 100%;
         width: 100%;
@@ -234,7 +255,7 @@
     }
 
     .search-field i{
-        position: absolute;
+        
         color: #fff;
         right: 15px;
         font-size: 22px;
@@ -278,6 +299,19 @@
     }
 
     /* -------- SECCIÓN INICIO -------- */
+    #h2Inicio:hover{
+        color: red;
+    }
+
+    .producto img:hover{
+        background-color: red;
+        opacity: 0.9;
+    }
+
+    .producto img{
+        height: auto;
+    }
+
     .ulul{
         display: block;
         margin: auto;
@@ -362,6 +396,16 @@
         font-weight: bold;
         font-size: 15px;*/
     }
+    
+    .button-category{
+    background-color: red;
+        color: white;
+        padding: 8px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        border-radius: 8px;
+    }
 
     .dropdown button{
         display: block;
@@ -373,6 +417,9 @@
       color: red;
       box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
     }
+	.textos-buscador{
+	margin-top: 100px;
+	}
 
     .red-separator {
         border: none;
@@ -394,10 +441,10 @@
         color: #ffffff;
         text-shadow: 0 0 0.3em #ff0000, 0 0 0.3em #ff0000;
     }
-	
+
 	.gomovienav{
 	
-	item-align: start;
+        item-align: start;
 	
 	}
 	
@@ -1027,22 +1074,70 @@
     }
     
 	/* -------- SECCIÓN DETALLES -------- */
+	.comprar-btn {
+	    margin-top: 10px;
+        justify-content: center;
+        align-items: center;
+        background-color: red;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: bold;
+        position: relative;
+        text-align: left;
+    }
+
+    .comprar-btn:hover{
+        background-color: white;
+        color: red;
+    }
 
 	.container-detalles{
 	    padding-top: 30px;
 	    margin: 10vh 1vw 4vh 1vw;
 	    overflow: hidden;
 	}
+
+	.container-detalles p{
+	    margin-top: 3px;
+	}
 	
 	.img-detalles{
 	    height: 80vh;
 	    width: 30vw;
-	    margin: 1vh 1vw 1vh 2vw;
+	    margin: 0 4vw 4vh 4vw;
 	    float: left;
 	}
-	
+
+	.cuadrante {
+      background-color: white;
+      width: 80px;
+      height: 25px;
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: left;
+      margin: 5px 0 7px 0;
+    }
+
+    .cuadrante p {
+      color: black;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+	.caja-roja {
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        border: 2px solid red;
+        padding: 10px;
+    }
+
 	.detalle{
-	    margin-left: 35vw;
+        padding: 4vh 3vw 3vh 3vw;
+        font-size: 18px;
 	}
 
 	.container-detalles h1{
@@ -1136,7 +1231,7 @@
     /* -------- perfil -------- */
     #fotoPerfil{
         display: block;
-        margin: auto;
+        margin: 70px auto 0 auto;
         width: 200px;
     }
 
@@ -1147,6 +1242,13 @@
            inset 0 -3em 3em rgba(0,0,0,0.1),
                  0 0  0 2px rgb(255,255,255),
                  0.3em 0.3em 1em rgba(0,0,0,0.3);
+        margin: 0 20px 20px 20px;
+    }
+
+    .perfilTextos{
+
+        margin: 30px 40px 10px 40px;
+
     }
 
     .rowPerfil b{
@@ -1177,12 +1279,12 @@
     }
 
     .profile-menu {
-      padding: 30px;
-      font-family: Arial, sans-serif;
+        font-family: Arial, sans-serif;
+        padding: 0 40px 20px;
     }
 
     .profile-info {
-      margin-bottom: 30px;
+        margin-bottom: 30px;
     }
 
     .profile-info p {
@@ -1449,6 +1551,7 @@
             width: 75%;
         }
 
+
         header {
             background-image: url("imagenes/header-img.jpg");
             display: flex;
@@ -1686,9 +1789,9 @@
     height: 50%;  
     width: 50%;  
     bottom: 0;
-  right: 0;
-  left: 0;
-  top: 0;
+	right: 0;
+	left: 0;
+	top: 0;
     margin:auto;
 }
 

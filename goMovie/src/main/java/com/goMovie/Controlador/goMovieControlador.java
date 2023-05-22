@@ -3,7 +3,7 @@ package com.goMovie.Controlador;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.goMovie.Modelo.Pelicula;
+import com.goMovie.Modelo.Tag;
 import com.goMovie.Servicio.PeliculaServicio;
+import com.goMovie.Servicio.TagServicio;
 
 @Controller
 @RequestMapping("/")
@@ -24,6 +26,9 @@ public class goMovieControlador {
 
 	@Autowired
 	private PeliculaServicio peliculaServicio;
+	
+	@Autowired
+	private TagServicio tagServicio;
 
 	
 
@@ -115,6 +120,18 @@ public class goMovieControlador {
 	
 	
 	
+			/* TAGS */
+	@GetMapping("/{tagName}")
+	public String categoriaTags(@PathVariable String tagName, Model model) {
+		int tagId = tagServicio.findIdByNombre(tagName);
+		List<Pelicula> peliculas = peliculaServicio.findByTagId(tagId);
+		model.addAttribute("peliculas", peliculas);   
+	    return "categoria";
+	}
+			/* TAGS */
+	
+	
+	
 			/* OFERTAS */
 	@GetMapping("/ofertas")
 	public String ofertas(Model model) {
@@ -143,50 +160,72 @@ public class goMovieControlador {
 	    model.addAttribute("preciosFinales", preciosFinales);
 	    
 	    return "ofertas";
+
 	}
 			/* OFERTAS */
 
-	
-	
+
+
 			/* DETALLES */
 	@GetMapping("/detalles/{id_pelicula}")
 	public String detalles(@PathVariable("id_pelicula") int id_pelicula, Model model) {
+
 		Pelicula pelicula = peliculaServicio.findByID(id_pelicula);
 		model.addAttribute("pelicula", pelicula);
 		
 		return "detalles";
+
 	}
 			/* DETALLES */
 	
 	@GetMapping("/lista")
 	public String tulista() {
+
+
 		return "lista";
+
 	}
 
 	@GetMapping("/proximamente")
 	public String proximamente() {
+
+
 		return "proximamente";
+
 	}
 	
 	@GetMapping("/login")
 	public String iniciarSesion(Model model, String error) {
 
+
 		return "login";
+
 	}
 
 	@GetMapping("/signup")
 	public String registrarse() {
+
+
 		return "signup";
+
 	}
 
 
 
 	@GetMapping("/perfil")
 	public String entrarPerfil(Model model, String perfiles) {
+
+
 		return "perfil";
 
 	}
 
+	@GetMapping("/modificarPerfil")
+	public String modificarPerfil(Model model, String perfiles) {
 
+
+		return "modificarPerfil";
+
+	}
 
 }
