@@ -1,6 +1,7 @@
 package com.goMovie.Servicio;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.stereotype.Service;
@@ -16,6 +17,9 @@ public interface PeliculaServicio {
 	List<Pelicula> ofertas();
 	List<Pelicula> buscador(String busqueda);
 	List<Pelicula> findByTagId(int tagId);
-	
-	
+
+
+    Optional<Pelicula> get(Integer id);
+
+	void save(Pelicula pelicula);
 }

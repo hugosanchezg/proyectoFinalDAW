@@ -111,8 +111,10 @@
 	margin-left: 240px;
 	}
     .nav-bar .darkLight-searchBox{
+    	
         display: flex;
-        align-items: center;
+        
+        
     }
 
     .darkLight-searchBox .searchToggle{
@@ -152,6 +154,7 @@
     .searchBox .searchToggle, 
     .searchBox .search-field{
     	color:white;
+    	item-align:center;
     }
 
     .icons{
@@ -193,9 +196,9 @@
     .searchBox .search-field{
         position: absolute;
         bottom: -85px;
-        right: 5px;
-        height: 50px;
-        width: 300px;
+        right: -93px;
+        height: 37px;
+        width: 229px;
         display: flex;
         align-items: center;
         color:white;
@@ -213,26 +216,14 @@
         pointer-events: auto;
     }
 	
-	.search-field button{
 	
-	}
-	
-    .search-field::before{
-        content: '';
-        position: absolute;
-        right: 14px;
-        top: -4px;
-        height: 12px;
-        width: 12px;
-        background-color:;
-        transform: rotate(-45deg);
-        z-index: -1;
-    }
+ 
 	
 	.lupa{
 		height: 100%;
         width: 100%;
-        padding: 0 45px 0 15px;
+        padding: 0 10px 0 15px;
+        margin:auto;
         outline: none;
         border: none;
         border-radius: 4px;
@@ -243,8 +234,8 @@
 	}
     .search-field input{
         height: 100%;
-        width: 100%;
-        padding: 0 45px 0 15px;
+        width: 80%;
+       margin-bottom:10px;
         outline: none;
         border: none;
         border-radius: 4px;
@@ -252,6 +243,12 @@
         font-weight: 400;
         color: grey;
         background-color: black;
+    }
+    
+    .search-button{
+    background-color:black;
+    margin-top:10px;
+    border: none;
     }
 
     .search-field i{
@@ -299,6 +296,17 @@
     }
 
     /* -------- SECCIÓN INICIO -------- */
+    .separadoresPag{
+        border-color: red;
+        width: 85%;
+        display: block;
+        margin: 0 auto 20px auto;
+    }
+
+    .botonesPag:hover{
+        color: red;
+    }
+
     #h2Inicio:hover{
         color: red;
     }
@@ -1051,27 +1059,7 @@
 
 
 
-    @media only screen and (max-width: 768px) {
-      #mainLista {
-        padding: 20px;
-      }
-      .list ul {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      .list ul li {
-        margin-right: 0;
-        margin-bottom: 20px;
-      }
-      .list img {
-        width: 100%;
-        height: auto;
-      }
-      .list div {
-        margin-left: 0;
-        text-align: center;
-      }
-    }
+
     
 	/* -------- SECCIÓN DETALLES -------- */
 	.comprar-btn {
@@ -1079,6 +1067,7 @@
         justify-content: center;
         align-items: center;
         background-color: red;
+        color: white;
         border: none;
         padding: 10px 20px;
         border-radius: 5px;
@@ -1111,20 +1100,17 @@
 	}
 
 	.cuadrante {
-      background-color: white;
-      width: 80px;
-      height: 25px;
-      border-radius: 2px;
-      display: flex;
-      align-items: center;
-      justify-content: left;
-      margin: 5px 0 7px 0;
-    }
-
-    .cuadrante p {
-      color: black;
-      font-size: 16px;
-      font-weight: bold;
+        background-color: white;
+        color: black;
+        font-size: 16px;
+        font-weight: bold;
+        width: 80px;
+        height: 25px;
+        border-radius: 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 5px 0 7px 0;
     }
 
 	.caja-roja {
@@ -1144,12 +1130,24 @@
 	    text-align: left;
 	}
 
+    .btn-detalles{
+        margin: 0 0 30px 70px;
+        display: block;
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: bold;
+    }
 
     /* -------- FOOTER -------- */
+    
     footer {
         background-color: #1d1d1d;
         color: #fff;
-        padding: 40px 0;
+        padding-top:40px;
     }
 
     footer h3{
@@ -1161,6 +1159,15 @@
         margin: 0 auto;
         padding: 0 20px;
         color: #ff0000;
+    }
+    
+    .logo-gm{
+    	widht:170px;
+    	height:170px;
+    	padding-bottom:15%;
+    	
+    	
+    
     }
 
 	.header-index h1 {	
@@ -1181,7 +1188,7 @@
         color: #fff;
         text-decoration: none;
         margin-right: 20px;
-        margin-bottom: 10px;
+        
     }
 
     .footer-links a:hover {
@@ -1191,13 +1198,21 @@
     .footer-extendables {
         display: flex;
         justify-content: space-between;
-        margin-left: 10%;
+        
     }
 
     .extendable {
-        flex-basis: 30%;
+    	
+        flex-basis: 40%;
         text-align: start;
     }
+    
+    .extendable-logo {
+        flex-basis: 40%;
+        
+    }
+    
+    
 
     .extendable h3 {
         font-size: 18px;
@@ -1205,6 +1220,7 @@
     }
 
     .extendable ul {
+    	
         list-style-type: none;
     }
 
@@ -1220,7 +1236,12 @@
     .extendable ul li a:hover {
         color: #ff0000;
     }
-
+	
+	.icon-gm{
+	position:start;
+	margin-right: 50%;
+	}
+	
     .imagen{
         width: 20px;
     }
@@ -1673,7 +1694,7 @@
     
 	}
 	
-	   	    /* -------- SECCIÓN PRÓXIMAMENTE -------- */
+	 /* -------- SECCIÓN PRÓXIMAMENTE -------- */
 
 
     @media only screen and (max-width: 768px) {
@@ -1729,70 +1750,95 @@
 
 }
 
+	/*---------------Proximamente---------------*/
+	
+	
+    @media only screen and (max-width: 768px) {
+      #mainLista {
+        padding: 20px;
+      }
+      .list ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .list ul li {
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+      .list img {
+        width: 100%;
+        height: auto;
+      }
+      .list div {
+        margin-left: 0;
+        text-align: center;
+      }
+    }
+
 /* ----------------Lightbox-----------------*/
 
-.lightbox {
-  background-color: fade(black, 80%);  
-  position: fixed;
-  margin:auto;
-  display: none;
-  z-index: 1;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  top: 0;
-  
-  &-container {
-    position: relative;
-    max-width: 960px;
-    margin: 7% auto;
-    display: block;    
-    padding: 0 3%;
-    height: auto;
-    z-index: 10;
-    
-    // Increasing top margin for mobile
-    @media screen and (max-width: 768px) { margin-top: 10%; }
-    @media screen and (max-width: 414px) { margin-top: 13%; }
-  }
-    
-  &-content {
-    box-shadow: 0 1px 6px fade(black, 70%);
-  }
-  
-  &-close {
-    text-transform: uppercase;    
-    background: transparent;
-    position: absolute; 
-    font-weight: 300;      
-    font-size: 12px;
-    display: block;
-    border: none;
-    color: white;
-    top: -22px;
-    right: 3%;
-  }
-}
-
-.video-container {  
-    padding-bottom: 56.25%;
-    position: relative;  
-    padding-top: 30px; 
-    overflow: hidden;
-    height: 0; 
-}
-
-.video-container iframe,
-.video-container object,
-.video-container embed {
-    position: fixed;
-    height: 50%;  
-    width: 50%;  
-    bottom: 0;
-	right: 0;
-	left: 0;
-	top: 0;
-    margin:auto;
-}
+	.lightbox {
+	  background-color: fade(black, 80%);  
+	  position: fixed;
+	  margin:auto;
+	  display: none;
+	  z-index: 1;
+	  bottom: 0;
+	  right: 0;
+	  left: 0;
+	  top: 0;
+	  
+	  &-container {
+	    position: relative;
+	    max-width: 960px;
+	    margin: 7% auto;
+	    display: block;    
+	    padding: 0 3%;
+	    height: auto;
+	    z-index: 10;
+	    
+	    // Increasing top margin for mobile
+	    @media screen and (max-width: 768px) { margin-top: 10%; }
+	    @media screen and (max-width: 414px) { margin-top: 13%; }
+	  }
+	    
+	  &-content {
+	    box-shadow: 0 1px 6px fade(black, 70%);
+	  }
+	  
+	  &-close {
+	    text-transform: uppercase;    
+	    background: transparent;
+	    position: absolute; 
+	    font-weight: 300;      
+	    font-size: 12px;
+	    display: block;
+	    border: none;
+	    color: white;
+	    top: -22px;
+	    right: 3%;
+	  }
+	}
+	
+	.video-container {  
+	    padding-bottom: 56.25%;
+	    position: relative;  
+	    padding-top: 30px; 
+	    overflow: hidden;
+	    height: 0; 
+	}
+	
+	.video-container iframe,
+	.video-container object,
+	.video-container embed {
+	    position: fixed;
+	    height: 50%;  
+	    width: 50%;  
+	    bottom: 0;
+		right: 0;
+		left: 0;
+		top: 0;
+	    margin:auto;
+	}
 
 

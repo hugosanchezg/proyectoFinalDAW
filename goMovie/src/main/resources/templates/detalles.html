@@ -13,6 +13,7 @@
 
     <div class="container-detalles">
         <img class="img-detalles" th:src="${pelicula.foto}" th:alt="${pelicula.nombre}">
+
         <div class="detalle">
             <input type="hidden" th:value="${pelicula.id_pelicula}" name="id">
             <h1 th:text="${pelicula.nombre}"></h1>
@@ -21,16 +22,19 @@
             <h5 th:text="${pelicula.duracion}"></h5>
 
             <div class="cuadrante">
-                <p>⭐ 4.5 / 5</p>
+                ⭐&nbsp;<span th:text="${pelicula.puntuacion}"> </span>&nbsp;/ 5
             </div>
 
             <div class="caja-roja">
                 <p th:text="${pelicula.descripcion}"></p>
             </div>
 
-            <button class="comprar-btn" ><i class='bx bxs-cart-alt'></i><a th:href="@{/inicio}">Comprar</a></button>
+            <a th:href="@{/inicio}"><button class="comprar-btn" ><i class='bx bxs-cart-alt'></i>Comprar</button></a>
         </div>
+
     </div>
+
+    <button class="btn-detalles"><a th:href="@{/inicio}">Volver</a></button>
 
     <footer th:replace="index :: footer"></footer>
 

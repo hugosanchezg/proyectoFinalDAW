@@ -32,6 +32,8 @@ public class Pelicula {
 	private int rebaja;
 	private int descatalogado;
 
+	private int puntuacion;
+
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "id_genero")
 	private Genero genero;
@@ -48,7 +50,7 @@ public class Pelicula {
 	}
 
 	public Pelicula(int id_pelicula, String foto, String nombre, String descripción, String duracion, float precio,
-			int stock, int rebaja, int descatalogado, Genero genero) {
+			int stock, int rebaja, int descatalogado, Genero genero, int puntuacion) {
 		super();
 		this.id_pelicula = id_pelicula;
 		this.foto = foto;
@@ -60,6 +62,7 @@ public class Pelicula {
 		this.rebaja = rebaja;
 		this.descatalogado = descatalogado;
 		this.genero = genero;
+		this.puntuacion = puntuacion;
 	}
 	
 	
@@ -142,6 +145,18 @@ public class Pelicula {
 
 	public void setGenero(Genero genero) {
 		this.genero = genero;
+	}
+
+	public int getPuntuacion(){
+
+		return puntuacion;
+
+	}
+
+	public void setPuntuacion(int puntuacion){
+
+		this.puntuacion = puntuacion;
+
 	}
 	
 	public Set<Tag> getTags() {

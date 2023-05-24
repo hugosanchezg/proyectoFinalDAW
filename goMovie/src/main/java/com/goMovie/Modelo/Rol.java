@@ -13,15 +13,17 @@ import javax.persistence.Table;
 	
 		@Id
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
-		private int id_usuario;
+		private int id_rol;
 		private String nombre;
 
-		public int getId() {
-			return id_usuario;
+		
+
+		public int getId_rol() {
+			return id_rol;
 		}
 
-		public void setId(int id_usuario) {
-			this.id_usuario = id_usuario;
+		public void setId_rol(int id_rol) {
+			this.id_rol = id_rol;
 		}
 
 		public String getNombre() {
@@ -32,9 +34,11 @@ import javax.persistence.Table;
 			this.nombre = nombre;
 		}
 
-		public Rol(int id_usuario, String nombre) {
+		
+
+		public Rol(int id_rol, String nombre) {
 			super();
-			this.id_usuario = id_usuario;
+			this.id_rol = id_rol;
 			this.nombre = nombre;
 		}
 

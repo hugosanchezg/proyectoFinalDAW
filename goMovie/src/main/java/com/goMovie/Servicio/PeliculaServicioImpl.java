@@ -50,5 +50,15 @@ public class PeliculaServicioImpl implements PeliculaServicio {
 		return peliculaRepositorio.findByTagId(tagId);
 	}
 
+	@Override
+	public Optional<Pelicula> get(Integer id) {
+		return Optional.empty();
+	}
+
+	@Override
+	public void save(Pelicula pelicula) {
+
+	}
+
 }
 

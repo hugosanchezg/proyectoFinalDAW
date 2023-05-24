@@ -48,7 +48,7 @@
                 </div>
 
                 <div class="searchBox">
-                    <a th:href="@{/}"><i class='bx bx-log-out bx-sm icons'></i></a>
+                    <a th:href="@{/login?logout}"><i class='bx bx-log-out bx-sm icons'></i></a>
                 </div>          
             </div>
         </div>
@@ -71,7 +71,7 @@
 
     <div class="textos">
 
-        
+        <h1>CATÁLOGO</h1>
 
         <div id="separador">
             <hr class="red-separator">
@@ -108,15 +108,48 @@
                 		<a th:href="@{'/' + ${tag.nombre}}"><span th:text="' [ ' + ${tag.nombre} + ' ] '"></span></a>
                 	</th:block>
                 </a>
-                
+    
             </div>
         </div>
 
     </main>
 
+    <hr class="separadoresPag" th:if = "${totalPages}">
+
+    <div class = "row" th:if = "${totalPages}">
+
+        <div class = "text-danger col-sm-3">
+            Total Productos: <a th:text="${totalProductos}"></a>
+        </div>
+
+        <div class = "col-sm-3">
+            <p th:if = "${totalPages > 1}">
+                <a th:each="page : ${#numbers.sequence(0, totalPages - 1)}" th:href="@{/inicio/(busqueda=${busqueda}, page=${page}, pageSize=${pageSize})}" class="botonesPag">
+                    <span th:text="${page + 1}"></span>&nbsp;
+                </a>
+                <span th:unless="${currentPage != i}">[[${i}]]</span>
+            </p>
+        </div>
+
+        <div class = "col-sm-2" >
+            <a class="botonesPag" th:if="${currentPage > 0}" th:href="@{/inicio/(busqueda=${busqueda}, page=${currentPage - 1}, pageSize=${pageSize})}"
+               aria-label="Previous">Anterior
+            </a>
+        </div>
+
+        <div class="col-sm-2">
+            <a class="botonesPag" th:if="${currentPage < totalPages - 1}" th:href="@{/inicio/(busqueda=${busqueda}, page=${currentPage + 1}, pageSize=${pageSize})}"
+               aria-label="Next"> Siguiente
+            </a>
+        </div>
+
+    </div>
+
+    <hr class="separadoresPag" th:if = "${totalPages}">
+
     <footer th:replace="index :: footer"></footer>
 
-
-    <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 </html>

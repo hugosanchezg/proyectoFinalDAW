@@ -1,21 +1,13 @@
 package com.goMovie.Controlador;
 
 
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
-import java.util.Comparator;
-import java.util.HashMap;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import com.goMovie.Modelo.Pelicula;
-import com.goMovie.Modelo.Tag;
 import com.goMovie.Servicio.PeliculaServicio;
 import com.goMovie.Servicio.TagServicio;
 
@@ -30,34 +22,49 @@ public class goMovieControlador {
 	@Autowired
 	private TagServicio tagServicio;
 
-	
-
 
 			/* PAGINAS PRINCIPALES */
 	@GetMapping("/")
 	public String index() {
 		return "index";
 	}
-		
+
 	@GetMapping("/inicio")
-	public String listar(String busqueda, Model model) {
+	public String listar(String busqueda, Model model, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "6") int pageSize) {
+
 		List<Pelicula> peliculas;
 		
 		if (busqueda != null && !busqueda.isEmpty()) {
 			peliculas = peliculaServicio.buscador(busqueda);
-			model.addAttribute("peliculas", peliculas);
-			return "busqueda";
 		} else {
-
 			peliculas = peliculaServicio.findAll();
-			model.addAttribute("peliculas", peliculas);
+		}
+
+		int start = page * pageSize;
+		int end = Math.min((start + pageSize), peliculas.size());
+		long totalProductos = peliculas.size();
+		List<Pelicula> peliculasPaginadas = peliculas.subList(start, end);
+
+		model.addAttribute("peliculas", peliculasPaginadas);
+		model.addAttribute("currentPage", page);
+		model.addAttribute("totalPages", (int) Math.ceil((double) peliculas.size() / pageSize));
+		model.addAttribute("pageSize", pageSize);
+
+		model.addAttribute("totalProductos", totalProductos);
+
+		if (busqueda != null && !busqueda.isEmpty()) {
+			model.addAttribute("busqueda", busqueda);
+			return "busqueda";
+
+		}else {
 			return "inicio";
 		}
+
+
 	}
 			/* PAGINAS PRINCIPALES */
 	
-	
-	
+
 			/* CATEGORIAS */
 	@GetMapping("/fantasia")
 	public String fantasia(Model model) {
@@ -73,7 +80,6 @@ public class goMovieControlador {
 		List<Pelicula> peliculas = peliculaServicio.generos(2);
 		model.addAttribute("peliculas", peliculas);
 
-		
 		return "inicio";
 	}
 	
@@ -126,6 +132,7 @@ public class goMovieControlador {
 		int tagId = tagServicio.findIdByNombre(tagName);
 		List<Pelicula> peliculas = peliculaServicio.findByTagId(tagId);
 		model.addAttribute("peliculas", peliculas);   
+		
 	    return "categoria";
 	}
 			/* TAGS */
@@ -156,7 +163,6 @@ public class goMovieControlador {
 
 	    model.addAttribute("peliculasDestacadas", peliculasDestacadas);
 	    model.addAttribute("peliculasRestantes", peliculasRestantes);
-	    
 	    model.addAttribute("preciosFinales", preciosFinales);
 	    
 	    return "ofertas";
@@ -169,7 +175,6 @@ public class goMovieControlador {
 			/* DETALLES */
 	@GetMapping("/detalles/{id_pelicula}")
 	public String detalles(@PathVariable("id_pelicula") int id_pelicula, Model model) {
-
 		Pelicula pelicula = peliculaServicio.findByID(id_pelicula);
 		model.addAttribute("pelicula", pelicula);
 		
@@ -178,54 +183,53 @@ public class goMovieControlador {
 	}
 			/* DETALLES */
 	
+	
+	
+			/* TU LISTA */
 	@GetMapping("/lista")
 	public String tulista() {
-
-
 		return "lista";
-
 	}
+			/* TU LISTA */
 
+
+	
+			/* PROXIMAMENTE */
 	@GetMapping("/proximamente")
 	public String proximamente() {
-
-
 		return "proximamente";
-
 	}
+			/* PROXIMAMENTE */
 	
+	
+	
+	
+			/* LOGIN Y USUARIO */
 	@GetMapping("/login")
 	public String iniciarSesion(Model model, String error) {
-
-
 		return "login";
-
 	}
-
-	@GetMapping("/signup")
-	public String registrarse() {
-
-
-		return "signup";
-
-	}
-
 
 
 	@GetMapping("/perfil")
 	public String entrarPerfil(Model model, String perfiles) {
-
-
 		return "perfil";
-
 	}
 
 	@GetMapping("/modificarPerfil")
 	public String modificarPerfil(Model model, String perfiles) {
-
-
 		return "modificarPerfil";
-
 	}
+			/* LOGIN Y USUARIO */
+	
+	
+		
+			/* ADMINISTRACION */
+			/* ADMINISTRACION */
+	
+
+	
+
+
 
 }
