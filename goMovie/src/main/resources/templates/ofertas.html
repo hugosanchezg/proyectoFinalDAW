@@ -9,80 +9,79 @@
 </head>
 
 <body>
-      <nav th:replace="inicio :: nav"></nav>
-      
-      
+	<nav th:replace="inicio :: nav"></nav>
 
-    <header>
-        <div class="header-content">
-            <img th:src="@{/assets/img/rebajas.png}" class="rebaja">
-            <!--<h1><span class="rebajas">¡REBAJAS DE PRIMAVERA!</span><br><span id="rebaja">¡REBAJAS DE PRIMAVERA!</span><br><span class="rebajas">¡REBAJAS DE PRIMAVERA!</span></h1>-->
+	<header>
+		<div class="header-content">
+			<img th:src="@{/assets/img/rebajas.png}" class="rebaja">
+			<!--<h1><span class="rebajas">¡REBAJAS DE PRIMAVERA!</span><br><span id="rebaja">¡REBAJAS DE PRIMAVERA!</span><br><span class="rebajas">¡REBAJAS DE PRIMAVERA!</span></h1>-->
 
-        </div>
-    </header>
+		</div>
+	</header>
 
-    <div class="textos">
+	<div class="textos">
 
-        <h1 class="gomovie">🎁 Ofertas 🎁</h1>
+		<h1 class="gomovie">🎁 Ofertas 🎁</h1>
 
-        <div id="separador">
-            <hr class="red-separator">
-        </div>
+		<div id="separador">
+			<hr class="red-separator">
+		</div>
 
-        <p>¡Explora y encuentra los mejores descuentos de la semana aquí!</p>
+		<p>¡Explora y encuentra los mejores descuentos de la semana aquí!</p>
 
-    </div>
+	</div>
 
 	<section th:if="${peliculasDestacadas.size() > 0}">
-	    <h2 class="titulillo">Top 3 rebajas</h2>
-	
-	    <table class="tabla">
-	        <thead>
-	        <tr>
-	            <th>Imagen</th>
-	            <th>Título</th>
-	            <th>Rebaja</th>
-	            <th>Precio antiguo</th>
-	            <th>Precio actual</th>
-	            <th>Género</th>
-	        </tr>
-	        </thead>
-	        <tbody>
-	        <tr th:each="pelicula : ${peliculasDestacadas}">
-	            <td><img th:src="${pelicula.foto}" class="rebajaFoto"></td>
-	            <td th:text="${pelicula.nombre}"></td>
-	            <td th:text="${pelicula.rebaja + '%'}"></td>
-	            <td class="old-price" th:text="${pelicula.precio} + '€'"></td>
-	            <td class="price" th:text="${preciosFinales.get(pelicula)} + '€'"></td>
-	            <td th:text="${pelicula.genero.nombre}"></td>
-	        </tr>
-	
-	        </tbody>
-	    </table>
-	
-	
-	    <main id="mainLista" th:if="${peliculasRestantes.size() > 0}">
-	        <section class="list">
-	            <h2>Esta semana:</h2>
-	
-	            <ul>
-	                <li th:each="pelicula : ${peliculasRestantes}">
-	                    <img th:src="${pelicula.foto}">
-	                    <div>
-	                        <h3 th:text="${pelicula.nombre}"></h3>
-	                        <p class="old-price" th:text="${pelicula.precio} + '€'"></p>
-	                        <p th:text="${preciosFinales.get(pelicula)} + '€'"></p>
-	                        <button>Comprar</button>
-	                    </div>
-	                </li>
-	            </ul>
-	        </section>
-	    </main>
+		<h2 class="titulillo">Top 3 rebajas</h2>
+
+		<table class="tabla">
+			<thead>
+			<tr>
+				<th>Imagen</th>
+				<th>Título</th>
+				<th>Rebaja</th>
+				<th>Precio antiguo</th>
+				<th>Precio actual</th>
+				<th>Género</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr th:each="pelicula : ${peliculasDestacadas}">
+				<td><img th:src="${pelicula.foto}" class="rebajaFoto"></td>
+				<td th:text="${pelicula.nombre}"></td>
+				<td th:text="${pelicula.rebaja + '%'}"></td>
+				<td class="old-price" th:text="${pelicula.precio} + '€'"></td>
+				<td class="price" th:text="${preciosFinales.get(pelicula)} + '€'"></td>
+				<td th:text="${pelicula.genero.nombre}"></td>
+			</tr>
+
+			</tbody>
+		</table>
+
+
+		<main id="mainLista" th:if="${peliculasRestantes.size() > 0}">
+			<section class="list">
+				<h2>Esta semana:</h2>
+
+				<ul>
+					<li th:each="pelicula : ${peliculasRestantes}">
+						<img th:src="${pelicula.foto}">
+						<div>
+							<h3 th:text="${pelicula.nombre}"></h3>
+							<p class="old-price" th:text="${pelicula.precio} + '€'"></p>
+							<p th:text="${preciosFinales.get(pelicula)} + '€'"></p>
+							<button>Comprar</button>
+						</div>
+					</li>
+				</ul>
+			</section>
+		</main>
 	</section>
-	
+
 	<section th:if="${peliculasDestacadas.size() < 1}">
 		<h1>No hay ofertas disponibles.</h1>
 	</section>
+
     
 	<footer th:replace="index :: footer"></footer>
 

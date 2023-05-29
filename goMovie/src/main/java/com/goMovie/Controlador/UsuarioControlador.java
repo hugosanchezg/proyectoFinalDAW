@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.goMovie.Modelo.Usuario;
 import com.goMovie.Servicio.UsuarioServicio;
 import com.goMovie.UsuariosDTO.UsuarioRegistroDTO;
 
@@ -44,7 +43,7 @@ public class UsuarioControlador {
 			//log.error("Usuario duplicado.");
 			return "redirect:/signup?fallo";		
 		}
-		//log.info("Usuario se ha registrado.");
+			//log.info("Usuario se ha registrado.");
 		return "redirect:/signup?exito";  
 	}
 	

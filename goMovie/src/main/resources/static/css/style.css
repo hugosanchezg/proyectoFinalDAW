@@ -37,11 +37,11 @@
     nav .nav-bar{
         position: relative;
         height: 100%;
-        max-width: 1000px;
+        max-width: 80%;
         width: 100%;
         background-color: #1d1d1d;
-        margin-left: 70px;
-        padding: 0 0;
+        padding:0 0;
+        margin: auto;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -55,13 +55,6 @@
         display: none;
     }
 
-    nav .nav-bar .logo a{
-        font-size: 25px;
-        font-weight: 500;
-        color: #CCC;
-        text-decoration: none;
-    }
-
     .menu .logo-toggle{
         display: none;
     }
@@ -71,8 +64,10 @@
     .nav-bar .nav-links{
         display: flex;
         align-items: center;
+        margin:auto;
     }
-
+    
+    
     .nav-bar .nav-links li{
         margin: 0 5px;
         list-style: none;
@@ -107,35 +102,40 @@
         opacity: 1;
     }
 	
-	.nav-links:first-child {
-	margin-left: 240px;
-	}
     .nav-bar .darkLight-searchBox{
-    	
         display: flex;
         
-        
     }
+   .menu-links{	
+   		margin-left: 20px;
+   
+   }
 
     .darkLight-searchBox .searchToggle{
         height: 40px;
-        width: 40px;
+        width: 35px;
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 0 5px;
+        margin: 0 10px;
         margin-left: 15px;
     }
 
     /* -color blanco a los iconos */
     .bx{
         color: #fff;
-        padding-right: 3px;
-        padding-left:3px;
     }
 
     .bxs-user{
-        margin-top:3.5px;
+        margin-top: 7px;
+    }
+
+    .bxs-cog{
+        margin-top: 7px;
+    }
+
+    .bxs-cart-alt{
+        margin: 7px 14px 0 0;
     }
 
     .textoLog{
@@ -147,8 +147,7 @@
     }
 
     .bx-log-out{
-        margin-top:2.5px;
-        margin-left:5px;
+        margin: 6px 0 0 12px;
     }
     
     .searchBox .searchToggle, 
@@ -215,10 +214,7 @@
         opacity: 1;
         pointer-events: auto;
     }
-	
-	
- 
-	
+
 	.lupa{
 		height: 100%;
         width: 100%;
@@ -235,7 +231,7 @@
     .search-field input{
         height: 100%;
         width: 80%;
-       margin-bottom:10px;
+        margin-bottom:10px;
         outline: none;
         border: none;
         border-radius: 4px;
@@ -260,6 +256,13 @@
     }
 
     /* -------- GENERAL -------- */
+    .alturaCont{
+        min-height: 120vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 6em 0 3em;
+    }
 
     h1 {
         color: white;
@@ -325,6 +328,15 @@
         margin: auto;
     }
 
+    .my-button{
+        color: grey;
+        margin-left: 5px;
+    }
+
+    .my-button:hover{
+        color: white;
+    }
+
     .dropbtn {
         background-color: #4CAF50;
         color: white;
@@ -339,6 +351,10 @@
         margin-left: 40px;
     }
 
+    .centrados{
+        text-align: center;
+    }
+
     /* The container <div> - needed to position the dropdown content */
     .dropdown {
         position: relative;
@@ -346,6 +362,7 @@
         text-align: center;
     }
 
+		
     /* Dropdown Content (Hidden by Default) */
     .dropdown-content {
         display: none;
@@ -380,8 +397,9 @@
         padding: 3px 20px 20px 20px;
     }
 
-    #mainInicio h1{
-        text-align: left;
+
+    .centrados{
+        text-align: center;
     }
 
     #playme {
@@ -425,8 +443,10 @@
       color: red;
       box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
     }
+
 	.textos-buscador{
-	margin-top: 100px;
+	    margin-top: 100px;
+	    margin-bottom: 15px;
 	}
 
     .red-separator {
@@ -443,11 +463,13 @@
     .textos{
         padding-top: 35px;
         text-align: center;
+        margin-bottom: 20px;
     }
 
-    .gomovie, .gomovienav{
+    .gomovie{
         color: #ffffff;
         text-shadow: 0 0 0.3em #ff0000, 0 0 0.3em #ff0000;
+        font-size:20px;
     }
 
 	.gomovienav{
@@ -558,21 +580,20 @@
      /* SECCIÓN LOGIN*/
 	
 	.container-login{
-	background-image: url("../assets/img/background-login.jpg");
-	object-fit: cover;
-	height: 80vh;
-	padding-top: 2vh ;
-	
+        background-image: url("../assets/img/background-login.jpg");
+        object-fit: cover;
+        height: 80vh;
+        padding: 60px;
 	}
 
 	.container-login-int{
-			margin: auto;
-			background-color: black;
-			width: 35vw;
-			height: 30wh;		
-			border-radius: 15px;
-			box-shadow: 7px 10px #EC1313;
-		}
+        margin: auto;
+        background-color: black;
+        width: 35vw;
+        height: 30wh;
+        border-radius: 15px;
+        box-shadow: 7px 10px #EC1313;
+    }
 	
     .login-btn {
       display: flex;
@@ -622,7 +643,6 @@
 
     .form-control{
         display: block;
-       
 		
         width: 17vw;
         color: white;
@@ -636,14 +656,17 @@
     }
 
 
-    .btn{
+    .btn-login{
         color: #fff;
         background-color: #ff0000;
         text-align: center;
-        width: 10vw;
-        height: 6vh;
+        width: 60%;
+        height: 15%;
         border-radius: 10px;
         margin: 10px 0;
+        color: #fff;
+    		cursor: pointer;
+        
     }
 
     #register{
@@ -652,7 +675,9 @@
 
     }
 
- 
+    .setentapx{
+        margin-top: 100px;
+    }
 
     #headerLista {
       height: 600px;
@@ -664,6 +689,188 @@
       align-items: center;
       color: white;
       margin-bottom: 40px;
+    }
+    
+    
+    /*---------SECCION SIGNUP-------------*/
+    .container-signup{
+	background-image: url("../assets/img/background-login.jpg");
+	
+	height: 80vh;
+	padding-top: 6vh ;
+
+	
+	}
+
+	.container-signup-int{
+			margin: auto;
+			background-color: black;
+			width: 35vw;
+			height: 30wh;		
+			border-radius: 15px;
+			box-shadow: 7px 10px #EC1313;
+		}
+	
+
+	
+    .logo-signup{
+        height: 150px;
+        width: 150px;
+        display: block;
+        margin: auto;
+
+    }
+
+    .form-signup{
+        width: 50%;
+        height: 40vh;
+        text-align: center;
+        margin: 0 10% 10% 25%;
+    }
+
+	.form-control-signup{
+		display: block;
+        width: 17vw;
+        color: white;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        border-radius: 0.25rem;
+        background-color: #1d1d1d;
+	}
+
+
+
+    .btn-signup{
+        background-color: rgb(255, 0, 0);
+    text-align: center;
+    width: 60%;
+    height: 5vh;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    border-radius: 10px;
+    margin: 10px 0px;
+        
+    }
+    
+	#form-control-password{
+		margin-bottom:10px;
+	}
+    
+    
+    /*---------SECCION SIGNUP-------------*/
+
+    /*---------SECCION ADMINISTRACIÓN-------------*/
+    .text-admin{
+        margin-left: 90px;
+    }
+
+    .formPeli{
+        padding: 70px;
+        text-align: center;
+    }
+
+    .inputAdmin{
+        display: block;
+        margin:auto;
+        width: 20vw;
+        color: white;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        border-radius: 0.25rem;
+        background-color: #474545;
+    }
+
+    .container-admin-int{
+        margin: auto;
+        background-color: #1d1d1d;
+        width: 745px;
+        height: 30wh;
+        border-radius: 15px;
+        box-shadow: 7px 10px #EC1313;
+    }
+
+    /* -------- CARRITO -------- */
+    .botones{
+        height: 35px;
+        width: 30px;
+        border-radius: 0.25rem;
+        background-color: #e8e3e3;
+    }
+
+    .botones:hover{
+        background-color: white;
+    }
+
+    .inputCarro{
+        text-align: center;
+        color: white;
+        line-height: 1.5;
+        border-radius: 0.25rem;
+        background-color: #474545;
+    }
+
+    .carrito{
+        margin-top: 100px;
+    }
+
+    .borrar{
+        color: grey;
+        margin-left: 5px;
+    }
+
+    .borrar:hover{
+        color: red;
+    }
+
+    .keep{
+        color: grey;
+        margin-left: 25%;
+    }
+
+    .keep:hover{
+        color: white;
+    }
+
+    .caja-roja2 {
+        display: block;
+        margin: auto;
+        border: 2px solid red;
+        padding: 40px 40px 20px 40px;
+        width: 50%;
+    }
+
+    .miCesta{
+        text-align: left;
+        margin-left: 25%;
+    }
+
+    .btn-compra{
+        margin: auto;
+        display: block;
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    /* -------- ORDEN -------- */
+    .container-margend{
+        margin-top: 100px;
+    }
+
+    #separador2{
+        margin: 20px auto;
+    }
+
+    #datos{
+        margin-bottom: 20px;
     }
 
     /* -------- MODIFICAR PERFIL -------- */
@@ -678,9 +885,8 @@
         border-radius: 0.25rem;
         background-color: #474545;
     }
-    
 
-    /* -------- SECCIÓN ofertas -------- */
+    /* -------- SECCIÓN OFERTAS -------- */
     .titulillo{
         margin: 20px 0 0 7.5%;
         margin-left: ;
@@ -813,73 +1019,10 @@
         width: 90%;
         margin: auto;
     }
+    
+    
 
-    /* ---- ----- ----- Pelicula Principal ----- ----- ----- */
-    .pelicula-principal {
-        font-size: 16px;
-        min-height: 40.62em;
-        color: #fff;
-        background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%),url("../assets/img/guards.webp");
-        background-position: center center;
-        background-size: cover;
-        display: flex;
-        align-items: end;
-    }
-
-    .pelicula-principal .contenedor {
-        margin: 0 auto;
-        margin-bottom: 6.25em;
-    }
-
-    .pelicula-principal .titulo {
-        font-weight: 600;
-        font-size: 3.12em;
-        margin-bottom: 0.4em;
-    }
-
-    .pelicula-principal .descripcion {
-        font-weight: normal;
-        font-size: 1em;
-        line-height: 1.75em;
-        max-width: 50%;
-        margin-bottom: 1.25em;
-    }
-
-    .pelicula-principal .boton {
-        background-color: #e50914;
-        color: white;
-        padding: 16px;
-        font-size: 16px;
-        border: none;
-        cursor: pointer;
-        border-radius: 8px;
-    }
-
-    .boton a{
-        text-decoration: none;
-        color: white;
-    }
-
-
-    .botonn {
-        background-color: black;
-        color: white;
-        padding: 16px;
-        font-size: 16px;
-        border: none;
-        cursor: pointer;
-        border-radius: 8px;
-    }
-
-    .pelicula-principal .botonn:hover{
-        background: #fff;
-        color: #000;
-    }
-
-    .pelicula-principal .boton:hover{
-        background: #fff;
-        color: red;
-    }
+    
 
 
     /* ---- ----- ----- Contenedor Titulo y Controles ----- ----- ----- */
@@ -1057,6 +1200,150 @@
 
     /* -------- SECCIÓN PRÓXIMAMENTE -------- */
 
+	/* ---- ----- ----- Pelicula Principal ----- ----- ----- */
+    .pelicula-principal {
+        font-size: 16px;
+        min-height: 40.62em;
+        color: #fff;
+        background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%),url("../assets/img/guards.webp");
+        background-position: center center;
+        background-size: cover;
+        display: flex;
+        align-items: end;
+    }
+
+    .pelicula-principal .contenedor {
+        margin: 0 auto;
+        margin-bottom: 6.25em;
+    }
+
+    .pelicula-principal .titulo {
+        font-weight: 600;
+        font-size: 3.12em;
+        margin-bottom: 0.4em;
+    }
+
+    .pelicula-principal .descripcion {
+        font-weight: normal;
+        font-size: 1em;
+        line-height: 1.75em;
+        max-width: 50%;
+        margin-bottom: 1.25em;
+    }
+
+    .pelicula-principal .boton {
+        background-color: #e50914;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        border-radius: 8px;
+    }
+
+    .boton a{
+        text-decoration: none;
+        color: white;
+    }
+
+
+    .botonn {
+        background-color: black;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        border-radius: 8px;
+    }
+
+    .pelicula-principal .botonn:hover{
+        background: #fff;
+        color: #000;
+    }
+
+    .pelicula-principal .boton:hover{
+        background: #fff;
+        color: red;
+    }
+    
+    
+        /* CARDS */
+    .movie {
+        position: relative;
+        height: 600px;
+        background-size:cover;
+       
+    }
+
+	.movieimg1{
+	    background-image: url("../assets/img/flash.gif");
+	}
+		
+	.movieimg2{
+	 	background-image: url("../assets/img/spider1.gif");
+	}
+
+	.movieimg3{
+	 	background-image: url("http://localhost:8080/assets/img/transformer2.gif");
+	}
+	
+    .overlay {
+    	position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .movie-info{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    .movie-info h2{
+        font-size: 36px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .movie-info p{
+        font-size: 24px;
+        margin-bottom: 40px;
+    }
+
+    .movie-info button{
+        padding: 10px 20px;
+        background-color: #e50914;
+        color: #fff;
+        border: none;
+        border-radius: 7px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow:5px 4px 30px black;
+    }
+
+    .movie-info button:hover{
+        background-color: #fff;
+        color: #e50914;
+    }
+
+
+    .movie-info h2{
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .movie-info p{
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
 
 
 
@@ -1148,6 +1435,7 @@
         background-color: #1d1d1d;
         color: #fff;
         padding-top:40px;
+        width:100%;
     }
 
     footer h3{
@@ -1155,7 +1443,7 @@
     }
 
     .container-footer {
-        max-width: 1200px;
+        max-width: 100%;
         margin: 0 auto;
         padding: 0 20px;
         color: #ff0000;
@@ -1431,91 +1719,7 @@
         color: white;
     }
 
-    /* CARDS */
-    .movie,
-    .show {
-        position: relative;
-        height: 600px;
-    }
 
-    .movie img,
-    .show img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .overlay {
-    position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-    }
-
-    .movie-info,
-    .show-info {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-    }
-
-    .movie-info h2,
-    .show-info h2 {
-        font-size: 36px;
-        font-weight: bold;
-        margin-bottom: 20px;
-    }
-
-    .movie-info p,
-    .show-info p {
-        font-size: 24px;
-        margin-bottom: 40px;
-    }
-
-    .movie-info button,
-    .show-info button {
-        padding: 10px 20px;
-        background-color: #e50914;
-        color: #fff;
-        border: none;
-        border-radius: 3px;
-        font-size: 16px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-
-    .movie-info button:hover,
-    .show-info button:hover {
-        background-color: #fff;
-        color: #e50914;
-    }
-
-    .movie,
-    .show {
-        height: 400px;
-    }
-
-    .movie-info h2,
-    .show-info h2 {
-        font-size: 24px;
-        margin-bottom: 10px;
-    }
-
-    .movie-info p,
-    .show-info p {
-        font-size: 16px;
-        margin-bottom: 20px;
-    }
-
-    .movie-info button,
-    .show-info button {
-        padding: 8px 16px;
-        font-size: 14px;
-    }
 
     /* ANIMACIONES */
     @keyframes slide-up {
@@ -1659,8 +1863,6 @@
 			height: 100px;
 			width: 100px;
 			display: block;
-			
-			
         }
 			
 		
@@ -1677,22 +1879,57 @@
     		
     	}
     	
-    
-    	.btn{
-    		color: #fff;
-    		background-color: #ff0000;
-    		text-align: center;
-    		width: 20vw;
-    		height: 6vh;
-    		border-radius: 10px;
-    		
-    	}
-    	
     	.register p{
     	margin-top: 10px;
     	}
     
 	}
+	
+	/*-----------SECCION SIGNUP-------------*/
+	@media screen and (max-width: 800px) {
+	
+	
+		.container-signup{
+		
+		height: 80vh;
+		
+		}
+		.container-signup-int{
+			margin: 4vh auto 4vh auto;
+			background-color: black;
+			width: 83vw;
+			height: 55vh;		
+			border-radius: 15px;
+			box-shadow: 7px 10px #EC1313;
+		}
+		
+		.logo-signup{
+			height: 100px;
+			width: 100px;
+			display: block;
+        }
+			
+		
+    
+    	.form-control-signup{
+    		display: block;
+    		margin: auto;
+    		width: 40vw;
+    		color: white;   		
+    		font-weight: 400;
+    		line-height: 1.5;
+    		border-radius: 0.25rem;
+    		background-color: #1d1d1d;  
+    		
+    	}
+    	
+    	.terminos{
+    	margin-top: 10px;
+    	}
+    
+	}
+	
+	/*-----------SECCION SIGNUP-------------*/
 	
 	 /* -------- SECCIÓN PRÓXIMAMENTE -------- */
 
@@ -1840,5 +2077,3 @@
 		top: 0;
 	    margin:auto;
 	}
-
-

@@ -29,5 +29,11 @@ public interface PeliculaRepositorio extends JpaRepository<Pelicula, Integer> {
 	@Query(value = "SELECT p.* FROM Peliculas p JOIN peliculas_tags pt ON p.id_pelicula = pt.id_pelicula JOIN tags t ON t.id_tag = pt.id_tag WHERE t.id_tag = :tagId", nativeQuery = true)
 	List<Pelicula> findByTagId(@Param("tagId") int tagId);
 
+	@Query(value = "SELECT * FROM Peliculas WHERE descatalogado = :descatalogado", nativeQuery = true)
+	List<Pelicula> administracion(@Param("descatalogado") int descatalogado);
+	
+	@Query(value = "SELECT * FROM Peliculas WHERE id_pelicula = :id", nativeQuery = true)
+	Pelicula get(@Param("id") int id);
+
 
 }

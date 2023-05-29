@@ -8,12 +8,11 @@
     <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 </head>
+
 <body>
-      <nav th:replace="inicio :: nav"></nav>
-    
+    <nav th:replace="inicio :: nav"></nav>
 
     <div class="textos-buscador">
-        <h1 class="gomovie">🎬GoMovie!</h1>
         <div id="separador">
             <hr class="red-separator">
         </div>
@@ -32,12 +31,13 @@
         </div>
 		
 		<div th:if="${peliculas.size() < 1}">
-			<h1>No se encontró ninguna película.</h1>
+			<h1 class="centrados">No se encontró ninguna película.</h1>
 		</div>
+
     </main>
 
     <footer th:replace="index :: footer"></footer>
     
-    <script src="js/script.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 </html>

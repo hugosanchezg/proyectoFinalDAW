@@ -13,5 +13,7 @@ import com.goMovie.Repositorio.TagRepositorio;
 @Service
 public interface TagServicio {
 
-	int findIdByNombre(String nombre);
+	Tag findByNombre(String nombre);
+	List<Tag> findAll();
+	Tag findByID(int id);
 }

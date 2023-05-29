@@ -51,13 +51,18 @@ public class PeliculaServicioImpl implements PeliculaServicio {
 	}
 
 	@Override
-	public Optional<Pelicula> get(Integer id) {
-		return Optional.empty();
+	public Pelicula get(int id) {
+		return peliculaRepositorio.get(id);
 	}
 
 	@Override
-	public void save(Pelicula pelicula) {
+	public Pelicula save(Pelicula pelicula) {
+		return peliculaRepositorio.save(pelicula);
+	}
 
+	@Override
+	public List<Pelicula> administracion(int descatalogado) {
+		return peliculaRepositorio.administracion(descatalogado);
 	}
 
 }

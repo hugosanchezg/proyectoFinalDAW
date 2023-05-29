@@ -82,9 +82,36 @@ public class UsuarioServicioImpl implements UsuarioServicio{
 
 
 	@Override
-	public Optional<Usuario> findById(int id_usuario) {
-		return Optional.empty();
+	public Usuario findById(int id_usuario) {
+		return usuarioRepositorio.findById(id_usuario);
 	}
+
+	@Override
+	public List<Usuario> mostrarPerfiles(String emaillogueado) {
+		return usuarioRepositorio.mostrarPerfiles(emaillogueado);
+	}
+
+	@Override
+	public Usuario findByEmail(String email) {
+		return usuarioRepositorio.findByEmail(email);
+	}
+
+	@Override
+	public void actualizarDir(int idUsuario, String direccion) {
+		usuarioRepositorio.actualizarDir(idUsuario, direccion);
+		
+	}
+
+	@Override
+	public void actualizarDni(int idUsuario, String dni) {
+		usuarioRepositorio.actualizarDni(idUsuario, dni);
+	}
+
+	@Override
+	public int cogerPerfilId(String emailLogueado) {
+		return usuarioRepositorio.cogerPerfilId(emailLogueado);
+	}
+	
 	
 	
 }

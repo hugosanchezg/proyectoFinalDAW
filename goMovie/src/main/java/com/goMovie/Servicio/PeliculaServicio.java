@@ -17,9 +17,10 @@ public interface PeliculaServicio {
 	List<Pelicula> ofertas();
 	List<Pelicula> buscador(String busqueda);
 	List<Pelicula> findByTagId(int tagId);
+	
+	List<Pelicula> administracion(int descatalogado);
 
+    Pelicula get(int id);
 
-    Optional<Pelicula> get(Integer id);
-
-	void save(Pelicula pelicula);
+	Pelicula save(Pelicula pelicula);
 }

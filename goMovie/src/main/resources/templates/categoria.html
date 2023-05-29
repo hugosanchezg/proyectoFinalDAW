@@ -10,33 +10,28 @@
     <link href="path/to/lightbox.css" rel="stylesheet" />
 </head>
 <body>
-      <nav th:replace="inicio :: nav"></nav>
-    
+    <nav th:replace="inicio :: nav"></nav>
 
-    <div class="textos">
-        <h1 class="gomovie">🎬GoMovie!</h1>
-        <div id="separador">
-            <hr class="red-separator">
-        </div>
+    <div class="setentapx">
+        <main id="mainInicio">
+
+            <div class="row" >
+                <div class="producto" th:each="pelicula: ${peliculas}">
+                    <a th:href="@{/detalles/} + ${pelicula.id_pelicula}">
+                        <img th:src="${pelicula.foto}" alt="Movie Poster">
+                        <h2 th:text="${pelicula.nombre}">Movie Title</h2>
+                    </a>
+
+                </div>
+            </div>
+
+        </main>
     </div>
 
-    <main id="mainInicio">
-
-        <div class="row" >
-            <div class="producto" th:each="pelicula: ${peliculas}">
-                <a th:href="@{/detalles/} + ${pelicula.id_pelicula}">
-                	<img th:src="${pelicula.foto}" alt="Movie Poster">
-                	<h2 th:text="${pelicula.nombre}">Movie Title</h2>
-                </a>
-                
-            </div>
-        </div>
-
-    </main>
+    <a th:href="@{/inicio}"><button class="btn-detalles">Volver</button></a>
 
     <footer th:replace="index :: footer"></footer>
 
-
-    <script src="js/script.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 </html>

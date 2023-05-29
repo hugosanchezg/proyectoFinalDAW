@@ -1,6 +1,7 @@
 package com.goMovie.Servicio;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +18,18 @@ public class TagServicioImpl implements TagServicio {
 	@Autowired(required = false)
 	private TagRepositorio tagRepositorio;
 	
-    public int findIdByNombre(String nombre) {
-        Tag tag = tagRepositorio.findByNombre(nombre);
-        if (tag != null) {
-            return tag.getId_tag();
-        }
-        throw new IllegalArgumentException("El tag con el nombre proporcionado no existe.");
-    }
+	public Tag findByNombre(String nombre) {
+	    return tagRepositorio.findByNombre(nombre);
+	}
+
+	@Override
+	public List<Tag> findAll() {
+		return tagRepositorio.findAll();
+	}
+
+	@Override
+	public Tag findByID(int id) {
+		Optional<Tag> tagOptional = tagRepositorio.findById(id);
+	    return tagOptional.orElse(null); 
+	}
 }

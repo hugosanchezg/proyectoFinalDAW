@@ -11,8 +11,15 @@ import com.goMovie.UsuariosDTO.UsuarioRegistroDTO;
 
 public interface UsuarioServicio extends UserDetailsService{
 	
+	
+	
 	public Usuario guardar(UsuarioRegistroDTO registroDTO) throws ConstraintViolationException;
 	
-	Optional<Usuario> findById(int id_usuario);
+	Usuario findById(int id_usuario);
+	List<Usuario> mostrarPerfiles(String emaillogueado);
+	Usuario findByEmail(String email);
+	public void actualizarDir(int idUsuario, String direccion);
+	public void actualizarDni(int idUsuario, String dni);
+	public int cogerPerfilId(String emailLogueado);
 	
 }

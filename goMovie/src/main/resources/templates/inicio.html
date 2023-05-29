@@ -13,11 +13,11 @@
         <div class="nav-bar">
             <div class="menu">
                 <span class="logo navLogo"> <a title="inicio" th:href="@{/inicio}" id="texttttt">
-                	<h1 class="gomovie" id="tituloGo">🎬GoMovie!</h1>
+                	<h1 class="gomovie">🎬 GoMovie!</h1>
                 </a></span>
             </div>
 
-            <div class="menu">
+            <div class="menu-links">
                 <ul class="nav-links">
                     <li><a th:href="@{/inicio}">Películas</a></li>
                     <li><a th:href="@{/ofertas}">Ofertas</a></li>
@@ -42,19 +42,27 @@
 					</div>
                     </div>
                 </div>
+
+                <div class="searchBox" sec:authorize="isAuthenticated()">
+                    <a th:href="@{/carrito}"><i class='bx bxs-cart-alt bx-sm icons'></i></a>
+                </div>
             
-                <div class="searchBox">
+                <div class="searchBox" sec:authorize="hasAnyAuthority('USER')">
                     <a th:href="@{/perfil}" class="skr"><i class="bx bxs-user bx-sm icons" ></i></a>
                 </div>
+                
+				<div class="searchBox" sec:authorize="hasAnyAuthority('ADMIN')">
+                    <a th:href="@{/administracion}" class="skr"><i class='bx bxs-cog bx-sm icons' ></i></a>
+                </div>
 
-                <div class="searchBox">
-                    <a th:href="@{/login?logout}"><i class='bx bx-log-out bx-sm icons'></i></a>
+                <div class="searchBox" sec:authorize="isAuthenticated()">
+                    <a th:href="@{/cerrarSesion}"><i class='bx bx-log-out bx-sm icons'></i></a>
                 </div>          
             </div>
         </div>
     </nav>
 
-    <i class='bx bx-menu sidebarOpen' ></i>
+    <i class='bx bx-menu sidebarOpen'></i>
 
     <div id="slideshow">
         <img th:src="@{/assets/img/img1.jpg}" onload="showSlide(slideIndex)">
@@ -63,7 +71,7 @@
         <img th:src="@{/assets/img/img4.jpg}">
         <img th:src="@{/assets/img/img5.jpg}">
         <img th:src="@{/assets/img/img6.jpg}">
-        <div class="nav-buttons">
+        <div class="nav-buttons" id="redirecPag">
           <button class="prev-button" onclick="nextSlide(-1)">&lt;</button>
           <button class="next-button" onclick="nextSlide(1)">&gt;</button>
         </div>
@@ -132,13 +140,13 @@
         </div>
 
         <div class = "col-sm-2" >
-            <a class="botonesPag" th:if="${currentPage > 0}" th:href="@{/inicio/(busqueda=${busqueda}, page=${currentPage - 1}, pageSize=${pageSize})}"
+            <a class="botonesPag" th:if="${currentPage > 0}" th:href="@{/inicio/(busqueda=${busqueda}, page=${currentPage - 1}, pageSize=${pageSize})} + '#redirecPag'"
                aria-label="Previous">Anterior
             </a>
         </div>
 
         <div class="col-sm-2">
-            <a class="botonesPag" th:if="${currentPage < totalPages - 1}" th:href="@{/inicio/(busqueda=${busqueda}, page=${currentPage + 1}, pageSize=${pageSize})}"
+            <a class="botonesPag" th:if="${currentPage < totalPages - 1}" th:href="@{/inicio/(busqueda=${busqueda}, page=${currentPage + 1}, pageSize=${pageSize})} + '#redirecPag'"
                aria-label="Next"> Siguiente
             </a>
         </div>

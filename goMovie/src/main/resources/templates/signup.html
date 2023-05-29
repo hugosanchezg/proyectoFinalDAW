@@ -11,10 +11,14 @@
 
 <body>
 	
-		<a th:href="@{/}"><img class="logo-login" src="../assets/img/logo.png"  th:src="@{/assets/img/logo.png}" /></a>
 		
 		
-	<div class="container">
+		
+	<div class="container-signup">
+		
+	<div class="container-signup-int">
+	
+	<a th:href="@{/}"><img class="logo-signup" src="../assets/img/logo.png"  th:src="@{/assets/img/logo.png}" /></a>
 		<div th:if=${param.exito}>
 			<div class="Usuario-nuevo">Se ha registrado exitosamente a
 				la aplicación.</div>
@@ -22,34 +26,34 @@
 		<div th:if=${param.fallo}>
 			<div class="Usuario-registrado">El usuario ya está registrado.</div>
 		</div>
-		<form th:action="@{/signup}" method="post" th:object="${usuario}">
+		<form class="form-signup" th:action="@{/signup}" method="post" th:object="${usuario}">
 
 			<div class="nombre">
-				<input type="text" id="form2Example3" class="form-control"
+				<input type="text" class="form-control-signup"
 					name="nombre" th:field="*{nombre}" placeholder="Nombre" required />
 			</div>
 
 			<div class="apellido">
-				<input type="text" id="form2Example4" class="form-control"
+				<input type="text" class="form-control-signup"
 					name="apellido" th:field="*{apellido}" placeholder="Apellido"
 					required />
 			</div>
 
 			<div class="email">
-				<input type="email" id="form2Example1" class="form-control"
+				<input type="email" class="form-control-signup"
 					name="email" th:field="*{email}" placeholder="Correo electrónico"
 					required />
 			</div>
 
 			<div class="pass">
-				<input type="password" id="form2Example2" class="form-control"
+				<input type="password" class="form-control-signup"
 					name="password" th:field="*{password}" placeholder="Contraseña"
 					required />
 			</div>
 			
 			<!-- Enabled input -->
 			<div class="form-outline mb-4 w-50 d-block m-auto">
-				<input type="hidden" class="form-control" th:name="enabled"
+				<input type="hidden" class="form-control-signup" th:name="enabled"
 					value="1">
 			</div>
 			<!--  <div class="form-outline mb-4 w-50 d-block m-auto">
@@ -72,7 +76,7 @@
 
 			<div class="form-group">
 				<button type="submit"
-					class="btn btn-primary btn-block d-block m-auto mb-4">Registrar</button>
+					class="btn-signup">Registrar</button>
 			</div>
 
 
@@ -96,18 +100,16 @@
 					<i class="fab fa-github"></i>
 				</button>
 			</div>
-
+		
 		</form>
+		</div>
 
-	</div>
 	<br>
-
-
 
 	<footer th:replace="index :: footer"></footer>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="js/scripts.js"></script>
+	<script src="../js/scripts.js"></script>
 	<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 
 </body>
