@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:fragment="head">
     <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GoMovie!</title>
     <link rel="icon" href="../assets/img/favicon.ico" th:href="@{/assets/img/favicon.ico}"/>
     <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
@@ -9,7 +10,63 @@
 </head>
 
 <body>
-	<nav th:replace="inicio :: nav"></nav>
+
+	<nav th:fragment="nav">
+		<div class="nav-bar">
+			<div class="menu">
+					<span class="logo navLogo"> <a title="inicio" th:href="@{/inicio}" id="texttttt">
+						<h1 class="gomovie">🎬</h1><h1 class="gomovie-letters">GoMovie!</h1>
+					</a></span>
+			</div>
+			<div class="hamburger">
+				<div class="_layer -top"></div>
+				<div class="_layer -mid"></div>
+				<div class="_layer -bottom"></div>
+			</div>
+			<div class="menu-links">
+				<ul class="nav-links">
+					<li><a th:href="@{/inicio}">Películas</a></li>
+					<li><a th:href="@{/ofertas}">Ofertas</a></li>
+					<li><a th:href="@{/lista}">Tu lista</a></li>
+					<li><a th:href="@{/proximamente}">Próximamente</a></li>
+				</ul>
+			</div>
+
+			<div class="darkLight-searchBox">
+				<div class="searchBox">
+					<div class="searchToggle">
+						<i class='bx bx-x cancel bx-sm icons' style= "color:white" ></i>
+						<i class='bx bx-search search bx-sm icons' style= "color:white"></i>
+					</div>
+
+					<div class="search-field">
+						<div>
+							<form class="lupa" th:action="@{/inicio}" method="get" >
+								<input type="text" name="busqueda" placeholder="Search...">
+								<button class="search-button" type="submit"><i class='bx bx-search icons'></i></button>
+							</form>
+						</div>
+					</div>
+				</div>
+
+				<div class="searchBox" sec:authorize="isAuthenticated()">
+					<a th:href="@{/carrito}"><i class='bx bxs-cart-alt bx-sm icons'></i></a>
+				</div>
+
+				<div class="searchBox" sec:authorize="hasAnyAuthority('USER')">
+					<a th:href="@{/perfil}" class="skr"><i class="bx bxs-user bx-sm icons" ></i></a>
+				</div>
+
+				<div class="searchBox" sec:authorize="hasAnyAuthority('ADMIN')">
+					<a th:href="@{/administracion}" class="skr"><i class='bx bxs-cog bx-sm icons' ></i></a>
+				</div>
+
+				<div class="searchBox" sec:authorize="isAuthenticated()">
+					<a th:href="@{/cerrarSesion}"><i class='bx bx-log-out bx-sm icons'></i></a>
+				</div>
+			</div>
+		</div>
+	</nav>
 
 	<header>
 		<div class="header-content">
@@ -21,7 +78,7 @@
 
 	<div class="textos">
 
-		<h1 class="gomovie">🎁 Ofertas 🎁</h1>
+		<h1 class="centrados">🎁 OFERTAS 🎁</h1>
 
 		<div id="separador">
 			<hr class="red-separator">
@@ -31,35 +88,34 @@
 
 	</div>
 
-	<section th:if="${peliculasDestacadas.size() > 0}">
+	<section class="section-of" th:if="${peliculasDestacadas.size() > 0}">
 		<h2 class="titulillo">Top 3 rebajas</h2>
 
-		<table class="tabla">
-			<thead>
-			<tr>
-				<th>Imagen</th>
-				<th>Título</th>
-				<th>Rebaja</th>
-				<th>Precio antiguo</th>
-				<th>Precio actual</th>
-				<th>Género</th>
-			</tr>
-			</thead>
-			<tbody>
-			<tr th:each="pelicula : ${peliculasDestacadas}">
-				<td><img th:src="${pelicula.foto}" class="rebajaFoto"></td>
-				<td th:text="${pelicula.nombre}"></td>
-				<td th:text="${pelicula.rebaja + '%'}"></td>
-				<td class="old-price" th:text="${pelicula.precio} + '€'"></td>
-				<td class="price" th:text="${preciosFinales.get(pelicula)} + '€'"></td>
-				<td th:text="${pelicula.genero.nombre}"></td>
-			</tr>
+		<div class="contenedorTabla">
+			<table class="tabla">
+				<thead>
+				<tr>
+					<th>Imagen</th>
+					<th>Título</th>
+					<th>Rebaja</th>
+					<th>Precio antiguo</th>
+					<th>Precio actual</th>
+				</tr>
+				</thead>
+				<tbody>
+					<!--<a class="tituloPelicula" th:href="@{/detalles/} + ${pelicula.id_pelicula}"></a>-->
+					<tr th:each="pelicula : ${peliculasDestacadas}">
+						<td><img th:src="${pelicula.foto}" class="rebajaFoto"></td>
+						<td th:text="${pelicula.nombre}"></td>
+						<td th:text="${pelicula.rebaja + '%'}"></td>
+						<td class="old-price" th:text="${pelicula.precio} + '€'"></td>
+						<td class="price" th:text="${preciosFinales.get(pelicula)} + '€'"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 
-			</tbody>
-		</table>
-
-
-		<main id="mainLista" th:if="${peliculasRestantes.size() > 0}">
+		<main id="mainListaof" th:if="${peliculasRestantes.size() > 0}">
 			<section class="list">
 				<h2>Esta semana:</h2>
 
@@ -70,7 +126,17 @@
 							<h3 th:text="${pelicula.nombre}"></h3>
 							<p class="old-price" th:text="${pelicula.precio} + '€'"></p>
 							<p th:text="${preciosFinales.get(pelicula)} + '€'"></p>
-							<button>Comprar</button>
+
+							<form th:action="@{/añadirCarrito}" method="POST" class="inline-form">
+
+								<input type="hidden" th:value="${pelicula.id_pelicula}" name="id_pelicula" />
+
+								<button class="comprar-btn" data-bs-dismiss="modal" type="submit" th:classappend="${pelicula.stock <= 0} ? 'disabled btn-danger' : ' '">
+									<span th:if="${pelicula.stock > 0}">Comprar</span>
+									<span th:if="${pelicula.stock <= 0}">No disp./span>
+								</button>
+
+							</form>
 						</div>
 					</li>
 				</ul>
@@ -85,7 +151,9 @@
     
 	<footer th:replace="index :: footer"></footer>
 
-	<script src="../js/script.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script th:src="@{/js/hamburguer.js}"></script>
+	<script th:src="@{/js/script.js}"></script>
 
 
 </body>
