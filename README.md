@@ -35,4 +35,4 @@ Presentación: https://docs.google.com/presentation/d/1ucoINpFQRgJJut7IaDaMaHtDx
 
 Enlace despliegue: http://gomovieapp.us-east-1.elasticbeanstalk.com/
 
-Vídeo final proyecto: 
+Vídeo final proyecto: https://youtu.be/T83k047ZrxI
