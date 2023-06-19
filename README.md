@@ -1,7 +1,5 @@
 # GoMovie
 
-![logo](https://github.com/hugosanchezg/proyectoFinalDAW/assets/91953221/b0c206d0-5590-424f-96ad-16f5e0f08556)
-
 ¿No sabes qué ver? Entra en GoMovie, tu web de confianza para comprar tus películas favoritas y enterarte de los estrenos.
 
 - Aplicación Java Spring Boot (Java 17 - Spring Boot 2.5.7)
@@ -19,6 +17,8 @@ Entre las muchas funcionalidades, las más importantes a destacar son:
 - Sección rebajas
 - Modificar perfil y datos (nombre, dirección, DNI...)
 - [...]
+
+![logo](https://github.com/hugosanchezg/proyectoFinalDAW/assets/91953221/b0c206d0-5590-424f-96ad-16f5e0f08556)
 
 ![image](https://github.com/hugosanchezg/proyectoFinalDAW/assets/91953221/11f85497-5725-48ab-9e73-a4563419fa93)
 ![image](https://github.com/hugosanchezg/proyectoFinalDAW/assets/91953221/c660e11e-cd01-4c83-8d5a-2304144a684f)
