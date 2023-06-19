@@ -29,9 +29,13 @@ Despliegue en AWS:
 ![image](https://github.com/hugosanchezg/proyectoFinalDAW/assets/91953221/c4bbf448-c0fe-4fff-a574-8768b86f6db7)
 ![image](https://github.com/hugosanchezg/proyectoFinalDAW/assets/91953221/659b08b4-656a-42b2-9c36-1bf59ca8b44d)
 
+Figma de idea versión principal: [ProyectoHugoSánchez (1).pdf](https://github.com/hugosanchezg/proyectoFinalDAW/files/11793558/ProyectoHugoSanchez.1.pdf)
+
 Vídeo 1ra versión funcional: https://youtu.be/rcH6ysO4rxU
 
 Presentación: https://docs.google.com/presentation/d/1ucoINpFQRgJJut7IaDaMaHtDxWakQBiJt2MYTGsaBfA/edit?usp=sharing
+
+[Proyecto Final de Grado GoMovie!.pdf](https://github.com/hugosanchezg/proyectoFinalDAW/files/11793960/Proyecto.Final.de.Grado.GoMovie.pdf)
 
 Enlace despliegue: http://gomovieapp.us-east-1.elasticbeanstalk.com/
 
