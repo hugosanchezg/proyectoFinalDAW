@@ -1,5 +1,7 @@
 # GoMovie
 
+![logo](https://github.com/hugosanchezg/proyectoFinalDAW/assets/91953221/b0c206d0-5590-424f-96ad-16f5e0f08556)
+
 ¿No sabes qué ver? Entra en GoMovie, tu web de confianza para comprar tus películas favoritas y enterarte de los estrenos.
 
 - Aplicación Java Spring Boot (Java 17 - Spring Boot 2.5.7)
@@ -35,7 +37,7 @@ Vídeo 1ra versión funcional: https://youtu.be/rcH6ysO4rxU
 
 Presentación: https://docs.google.com/presentation/d/1ucoINpFQRgJJut7IaDaMaHtDxWakQBiJt2MYTGsaBfA/edit?usp=sharing
 
-[Proyecto Final de Grado GoMovie!.pdf](https://github.com/hugosanchezg/proyectoFinalDAW/files/11793960/Proyecto.Final.de.Grado.GoMovie.pdf)
+[Proyecto Final de Grado GoMovie!.pdf](https://github.com/hugosanchezg/proyectoFinalDAW/files/11793988/Proyecto.Final.de.Grado.GoMovie.pdf)
 
 Enlace despliegue: http://gomovieapp.us-east-1.elasticbeanstalk.com/
 
