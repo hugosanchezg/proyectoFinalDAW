@@ -17,7 +17,8 @@ Arranque local:
 ![image](https://github.com/hugosanchezg/proyectoFinalDAW/assets/91953221/5b1aa301-a839-41e2-b5fd-6f64ea9c71e3)
 
 
-Aplicación desplegada en AWS:
+Despliegue en AWS:
+![image](https://github.com/hugosanchezg/proyectoFinalDAW/assets/91953221/c4bbf448-c0fe-4fff-a574-8768b86f6db7)
 ![image](https://github.com/hugosanchezg/proyectoFinalDAW/assets/91953221/659b08b4-656a-42b2-9c36-1bf59ca8b44d)
 
 
