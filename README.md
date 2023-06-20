@@ -54,6 +54,8 @@
 <h2>🗄🎨Diseño primario:</h2>
 <p>La idea comenzó con hacer un prototipo que tuviese una esencia parecida a Netflix, elegante y con colores ambientados al mundo del cine. Al comienzo, la idea era una página para verlas en "Streaming", como podemos ver en el Figma, pero fue evolucionando, hasta llegar a ser una tienda de venta online de películas, manteniendo la idea de la esencia de colores y formalidad del principio.</p>
 
+![image](https://github.com/hugosanchezg/proyectoFinalDAW/assets/91953221/97c03b6a-e230-4d4d-963a-4a40a0c199b0)
+
 - Figma idea primera versión: https://www.figma.com/file/0sQxoweQOktvAoR2wCW0nn/ProyectoDise%C3%B1o?type=design&node-id=0-1
 
 - Vídeo 1ra versión funcional: https://youtu.be/rcH6ysO4rxU
